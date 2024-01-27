@@ -5,7 +5,7 @@
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
 
-EXEC = exec
+EXEC = a.out
 
 # directories
 SRCDIR = src
