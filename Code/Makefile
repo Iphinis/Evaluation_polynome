@@ -37,7 +37,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 .PHONY: clean run
 
 clean:
-	rm obj/*.o $(EXEC)
+	rm -r obj $(EXEC)
 
 run: $(EXEC)
 	./$(EXEC)
