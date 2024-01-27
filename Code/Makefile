@@ -1,0 +1,43 @@
+#--------------------------------
+# VARIABLES
+#--------------------------------
+# compilation
+CC = gcc
+FLAGS = -Wall -Werror -Wextra
+
+EXEC = exec
+
+# directories
+SRCDIR = src
+OBJDIR = obj
+
+# source and object files
+SOURCES = $(wildcard $(SRCDIR)/*.c)
+OBJECTS = $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SOURCES))
+
+
+#--------------------------------
+# EXECUTABLE
+#--------------------------------
+$(EXEC): $(OBJECTS)
+	$(CC) $^ $(FLAGS) -o $@
+
+
+#--------------------------------
+# OBJECT RULES
+#--------------------------------
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $< -c $(FLAGS) -o $@
+
+
+#--------------------------------
+# PHONY TARGETS
+#--------------------------------
+.PHONY: clean run
+
+clean:
+	rm obj/*.o $(EXEC)
+
+run: $(EXEC)
+	./$(EXEC)
