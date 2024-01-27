@@ -2,7 +2,7 @@
 
 #define DERIVEES_H
 
-#include "poly.h"
+#include "poly/poly.h"
 
 int fact(int k);
 

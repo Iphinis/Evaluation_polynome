@@ -1,7 +1,7 @@
 #include <assert.h>
-#include "poly.h"
-#include "alpha.h"
-#include "derivees.h"
+#include "poly/poly.h"
+#include "alpha/alpha.h"
+#include "derivees/derivees.h"
 
 
 void afficherTab(double* t, int n) {
@@ -39,4 +39,6 @@ int main() {
     double* deriv = malloc(sizeof(double)*(deg+1));
     deriveesEnAlpha(p, b, deriv);
     afficherTab(deriv, deg+1);
+
+    return 0;
 }

@@ -51,22 +51,15 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
-
 # Local History for Visual Studio Code
 .history/
 
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
+# VSCode
+Code/src/.vscode
+
+# CMake application
+CMakeLists.txt
+cmake-build-debug
 
 # Local History for Visual Studio Code
 .history/
