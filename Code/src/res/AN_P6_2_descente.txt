@@ -1,0 +1,41 @@
+
+Veuillez entrer les coefficients de la matrice A :
+Entrez le coeff (0,0) : 1
+Entrez le coeff (0,1) : 0
+Entrez le coeff (0,2) : 0
+Entrez le coeff (0,3) : 0
+Entrez le coeff (0,4) : 0
+Entrez le coeff (1,0) : -4
+Entrez le coeff (1,1) : 1
+Entrez le coeff (1,2) : 0
+Entrez le coeff (1,3) : 0
+Entrez le coeff (1,4) : 0
+Entrez le coeff (2,0) : 1
+Entrez le coeff (2,1) : -4
+Entrez le coeff (2,2) : 1
+Entrez le coeff (2,3) : 0
+Entrez le coeff (2,4) : 0
+Entrez le coeff (3,0) : 0
+Entrez le coeff (3,1) : 1
+Entrez le coeff (3,2) : -4
+Entrez le coeff (3,3) : 1
+Entrez le coeff (3,4) : 0
+Entrez le coeff (4,0) : 0
+Entrez le coeff (4,1) : 0
+Entrez le coeff (4,2) : 1
+Entrez le coeff (4,3) : -4
+Entrez le coeff (4,4) : 1
+
+Veuillez entrer les coefficients du vecteur b2 :
+0-ieme composante : -4
+1-ieme composante : 1
+2-ieme composante : 0
+3-ieme composante : 0
+4-ieme composante : -2.5
+
+Voici les valeurs des Cj :
+x[0] = -4.000000
+x[1] = -15.000000
+x[2] = -56.000000
+x[3] = -209.000000
+x[4] = -782.500000

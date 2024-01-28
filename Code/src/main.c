@@ -5,6 +5,7 @@
 #include "poly/poly.h"
 #include "alpha/alpha.h"
 #include "derivees/derivees.h"
+#include "matrices/matrice.h"
 
 
 void afficherTab(double* t, int n) {
@@ -42,6 +43,23 @@ int main() {
     double* deriv = malloc(sizeof(double)*(deg+1));
     deriveesEnAlpha(p, b, deriv);
     afficherTab(deriv, deg+1);
+    
+    // AN : calcul de P6(2) avec algo de descente
+    double **A;
+    double *x;
+    double *b2;
+    printf("\n");
+    printf("Veuillez entrer les coefficients de la matrice A :\n");
+    A=creerMatrice(5);
+    printf("\n");
+    printf("Veuillez entrer les coefficients du vecteur b2 :\n");
+    b2=creerVecteur(5);
+    x=methodeDescente(A,b2,5);
+    printf("\n");
+    printf("Voici les valeurs des Cj :\n");
+    for (int i=0;i<5;i++){
+    	printf("x[%d] = %lf\n",i,x[i]);
+    }
 
     return 0;
 }

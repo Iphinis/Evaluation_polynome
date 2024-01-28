@@ -16,8 +16,8 @@ int *fact(int k) {
 }
 
 // TODO: corriger cette fonction qui est incorrecte
-void deriveesEnAlpha(polynome p, double* b, double* deriv) {
-    for(int i=0; i <= p.deg; i++) {
-        deriv[i] = fact(i)*b[p.deg-i];
-    }
-}
+//void deriveesEnAlpha(polynome p, double* b, double* deriv) {
+//    for(int i=0; i <= p.deg; i++) {
+//        deriv[i] = fact(i)*b[p.deg-i];
+//    }
+//}
