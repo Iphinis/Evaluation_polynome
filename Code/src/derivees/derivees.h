@@ -4,8 +4,7 @@
 
 #include "../poly/poly.h"
 
-int fact(int k);
-
+int *fact(int k);
 
 void deriveesEnAlpha(polynome p, double* b, double* deriv);
 
