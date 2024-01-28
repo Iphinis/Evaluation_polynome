@@ -1,4 +1,7 @@
 #include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "poly/poly.h"
 #include "alpha/alpha.h"
 #include "derivees/derivees.h"

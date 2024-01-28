@@ -1,5 +1,8 @@
 #include "poly.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+
 polynome creerPoly(int deg) {
     polynome p;
 

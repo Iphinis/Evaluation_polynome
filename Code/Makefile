@@ -12,9 +12,10 @@ SRCDIR = src
 OBJDIR = obj
 
 # source and object files
-SOURCES = $(wildcard $(SRCDIR)/*.c)
+SOURCES = $(wildcard $(SRCDIR)/**/*.c) $(wildcard $(SRCDIR)/*.c)
 OBJECTS = $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SOURCES))
 
+$(info SOURCES: $(SOURCES))
 
 #--------------------------------
 # EXECUTABLE

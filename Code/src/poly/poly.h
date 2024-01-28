@@ -2,9 +2,6 @@
 
 #define POLY_H
 
-#include <stdio.h>
-#include <stdlib.h>
-
 typedef struct polynome {
     int deg;
     double* coeffs;
