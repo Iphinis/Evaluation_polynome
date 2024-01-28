@@ -6,21 +6,7 @@
 #include "poly/poly.h"
 #include "alpha/alpha.h"
 #include "derivees/derivees.h"
-<<<<<<< Updated upstream
-#include "matrices/matrice.h"
-
-
-void afficherTab(double* t, int n) {
-    printf("{ ");
-    for(int i=0; i<n; i++) {
-        printf("%.16lf", t[i]);
-        if(i != n-1) printf(", ");
-    }
-    printf(" }\n");
-}
-=======
 #include "renderer/renderer.h"
->>>>>>> Stashed changes
 
 
 int main() {
