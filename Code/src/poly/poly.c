@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-polynome creerPoly(int deg) {
+polynome creerPolynome(int deg) {
     polynome p;
 
     p.deg = deg;
@@ -12,15 +12,13 @@ polynome creerPoly(int deg) {
     return p;
 }
 
-void remplirPoly(polynome p) {
+void remplirPolynome(polynome p) {
     for(int i=0; i <= p.deg; i++) {
-        printf("Entrez le coefficient %d du polynôme: ", i);
         scanf("%lf", &p.coeffs[i]);
     }
 }
 
-void afficherPoly(polynome p) {
-    printf("Polynome: ");
+void afficherPolynome(polynome p) {
     for(int i=0; i <= p.deg; i++) {
         if(i == 0) printf("%.16lf", p.coeffs[i]);
         else printf("%.16lf*x^{%d}", p.coeffs[i], i);

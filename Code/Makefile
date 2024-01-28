@@ -3,7 +3,8 @@
 #--------------------------------
 # compilation
 CC = gcc
-FLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
+LIBS = -lm -lSDL2 -lSDL2_ttf
 
 EXEC = a.out
 
@@ -15,13 +16,11 @@ OBJDIR = obj
 SOURCES = $(wildcard $(SRCDIR)/**/*.c) $(wildcard $(SRCDIR)/*.c)
 OBJECTS = $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SOURCES))
 
-$(info SOURCES: $(SOURCES))
-
 #--------------------------------
 # EXECUTABLE
 #--------------------------------
-$(EXEC): $(OBJECTS)
-	$(CC) $^ $(FLAGS) -o $@
+$(EXEC): $(OBJECTS) | data
+	$(CC) $^ $(CFLAGS) -o $@ $(LIBS)
 
 
 #--------------------------------
@@ -29,16 +28,20 @@ $(EXEC): $(OBJECTS)
 #--------------------------------
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $< -c $(FLAGS) -o $@
+	$(CC) $< -c $(CFLAGS) -o $@ $(LIBS)
 
 
 #--------------------------------
 # PHONY TARGETS
 #--------------------------------
-.PHONY: clean run
+.PHONY: clean run $(DATADIR)
 
 clean:
 	rm -r obj $(EXEC)
 
 run: $(EXEC)
 	./$(EXEC)
+
+data:
+	mkdir -p input
+	mkdir -p output

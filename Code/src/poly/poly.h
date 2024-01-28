@@ -7,10 +7,10 @@ typedef struct polynome {
     double* coeffs;
 } polynome;
 
-polynome creerPoly(int deg);
+polynome creerPolynome(int deg);
 
-void remplirPoly(polynome p);
+void remplirPolynome(polynome p);
 
-void afficherPoly(polynome p);
+void afficherPolynome(polynome p);
 
 #endif

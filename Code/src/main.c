@@ -2,9 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "utils/utils.h"
 #include "poly/poly.h"
 #include "alpha/alpha.h"
 #include "derivees/derivees.h"
+<<<<<<< Updated upstream
 #include "matrices/matrice.h"
 
 
@@ -16,22 +18,31 @@ void afficherTab(double* t, int n) {
     }
     printf(" }\n");
 }
+=======
+#include "renderer/renderer.h"
+>>>>>>> Stashed changes
 
 
 int main() {
+    // numero de la machine (pour les fichiers d'entrée et de sortie)
+    int machine;
+    scanf("%i", &machine);
+
+    char output_file[100];
+    snprintf(output_file, sizeof(output_file), "output/res_machine%d.txt", machine);
+    freopen(output_file, "w", stdout);
+    
     // creation du polynome Pn
     int deg;
-    printf("Degré du polynôme: ");
     scanf("%u", &deg);
     assert(deg >= 0);
 
-    polynome p = creerPoly(deg);
-    remplirPoly(p);
-    afficherPoly(p);
+    polynome p = creerPolynome(deg);
+    remplirPolynome(p);
+    afficherPolynome(p);
 
     // calculer Pn(alpha)
     double alpha;
-    printf("alpha: ");
     scanf("%lf", &alpha);
 
     double* b = malloc(sizeof(double)*(deg+1));
@@ -60,6 +71,10 @@ int main() {
     for (int i=0;i<5;i++){
     	printf("x[%d] = %lf\n",i,x[i]);
     }
+
+    int tracer = 1;
+    scanf("%d", &tracer);
+    if(tracer != 0) tracerPolynome(p);
 
     return 0;
 }
