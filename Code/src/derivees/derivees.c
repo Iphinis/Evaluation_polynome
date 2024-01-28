@@ -1,11 +1,17 @@
 #include "derivees.h"
 
-// TODO: à optimiser, en stockant les valeurs de fact(n) dans un tableau de taille n+1 (de 0 à n), pour ne plus avoir à recalculer ces valeurs.
-int fact(int k) {
-    int res = 1;
+#include <stdlib.h>
 
-    for(int i=2; i <= k; i++) res *= i;
-
+/*
+* Retourner un tableau contenant 0!, 1!, ..., k!
+* Paramètre : k (entier)
+*/
+int *fact(int k) {
+    int *res = (int *) malloc(sizeof(int) * k + 1);
+    res[0] = 1;
+    for (int i = 1; i < k + 1; i++) {
+        res[i] = res[i - 1] * i;
+    }
     return res;
 }
 
