@@ -24,14 +24,14 @@ Cette partie correspond au chapitrage "Calcul naïf de Pn en alpha" dans le fich
 Cette partie correspond au chapitrage "Calcul de Pn en alpha avec Horner" dans le fichier main.c. Le fichier de données utilisé est le fichier donnes.txt. Vous retrouverez le résultat dans le fichier res_mk.txt dans le dossier output.
 
 
-## A FAIRE (corriger fonction deriveesEnAlpha environ 10min + application environ 5min)
+## Calcul des dérivées successives - A FAIRE 
 
 3. Ensuite, on a décidé de calculer chacune des dérivées du même polynôme évalué en alpha=2 toujours. Pour cela, on a créé les fichiers derivees.c et derivees.h contenant une fonction fact et une fonction deriveesEnAlpha. On a ensuite calculer chacune des dérivées du polynôme en alpha. 
 
 Cette partie correspond au chapitrage "Calcul des n dérivées de Pn en alpha" dans le fichier main.c. Le fichier de données utilisé est le fichier donnes.txt. Vous retrouverez le résultat dans le fichier res_mk.txt dans le dossier output.
 
 
-## Méthode Clenshaw : base de Tchebychev
+## Méthode de Clenshaw : base de Tchebychev
 
 4. On a décidé d'implémenter l'algorithme de descente qui va nous être utile par la suite. Il s'agit de la fonction methodeDescente qui se situe dans les fichiers matrice.c et matrice.h nouvellement créé. Aussi, on a créé des fonctions creerMatrice; afficherMatrice; creerVecteur; afficherVecteur et multiplicationMatriceVect dans ces mêmes fichiers. On a effectuer l'analyse numérique demandé en calculant P6(2) par la méthode de Cleshaw. 
 
