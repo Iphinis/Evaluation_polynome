@@ -10,31 +10,33 @@
 
 
 int main() {
-    // numero de la machine (pour les fichiers d'entrée et de sortie)
+    // Numero de la machine (pour les fichiers d'entrée et de sortie)
     int machine;
-    scanf("%i", &machine);
+    /canf("%i", &machine);
 
     char output_file[100];
     snprintf(output_file, sizeof(output_file), "output/res_m%d.txt", machine);
     freopen(output_file, "w", stdout);
      
      
-    // creation du polynome Pn
+    // Creation du polynome Pn
     int deg;
     scanf("%u", &deg);
     assert(deg >= 0);
 
-    polynome p = creerPolynome(deg);
+    //polynome p = creerPolynome(deg);
     remplirPolynome(p);
     printf("Pn : ");
     afficherPolynome(p);
 
-    // calculer Pn(alpha) avec Horner
+    // Récupération de alpha
     double alpha;
     scanf("%lf", &alpha);
-
+    
+    // Calcul naïf de Pn en alpha	
     printf("Naif : P_n(%.16lf)=%.16lf\n", alpha, enAlphaNaif(p, alpha));
 
+    // Calculer de Pn en alpha avec Horner
     double* b = malloc(sizeof(double)*(deg+1));
     printf("Horner : P_n(%.16lf)=%.16lf\n", alpha, enAlpha(p, alpha, b));
     printf("b : ");
@@ -44,9 +46,8 @@ int main() {
     int tracer = 1;
     scanf("%d", &tracer);
     if(tracer != 0) tracerPolynome(p);
-
-
-    // calculer les n dérivées de Pn en alpha
+    
+    // Calcul des n dérivées de Pn en alpha
     double* deriv = malloc(sizeof(double)*(deg+1));
     deriveesEnAlpha(p, alpha, b, deriv);
     printf("Dérivées : ");

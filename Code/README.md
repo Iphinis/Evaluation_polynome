@@ -6,7 +6,12 @@ Compilateur: gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0\
 Editeur: VSCODE
 
 # Caractéristiques de la machine 2 (m2)
-## PC de Hugo (je compléterais plus tard)
+
+Nom : jammy
+Processeur: Intel® Core™ i7-10810U CPU @ 1.10GHz × 12\
+Système d'exploitation : Ubuntu 22.04.3 LTS 64-bits\
+Compilateur: gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0\
+Editeur: VSCODE
 
 # Caractéristiques de la machine 3 (m3)
 ## ...

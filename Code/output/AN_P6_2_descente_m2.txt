@@ -1,0 +1,10 @@
+0-ieme composante : 
+1-ieme composante : 
+2-ieme composante : 
+3-ieme composante : 
+4-ieme composante : 
+x[0] = -4.000000
+x[1] = -15.000000
+x[2] = -56.000000
+x[3] = -209.000000
+x[4] = -782.500000
