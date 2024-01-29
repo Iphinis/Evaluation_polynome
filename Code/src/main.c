@@ -17,7 +17,8 @@ int main() {
     char output_file[100];
     snprintf(output_file, sizeof(output_file), "output/res_machine%d.txt", machine);
     freopen(output_file, "w", stdout);
-    
+     
+     
     // creation du polynome Pn
     int deg;
     scanf("%u", &deg);
@@ -26,6 +27,13 @@ int main() {
     polynome p = creerPolynome(deg);
     remplirPolynome(p);
     afficherPolynome(p);
+
+
+    // Tracer le polynome Pn	  
+    int tracer = 1;
+    scanf("%d", &tracer);
+    if(tracer != 0) tracerPolynome(p);
+
 
     // calculer Pn(alpha)
     double alpha;
@@ -36,10 +44,12 @@ int main() {
     printf("P_n(%.16lf)=%.16lf\n", alpha, b[0]);
     afficherTab(b, deg+1);
 
+
     // calculer les n dérivées de Pn en alpha
     double* deriv = malloc(sizeof(double)*(deg+1));
     deriveesEnAlpha(p, b, deriv);
     afficherTab(deriv, deg+1);
+    
     
     // AN : calcul de P6(2) avec algo de descente
     double **A;
@@ -57,10 +67,6 @@ int main() {
     for (int i=0;i<5;i++){
     	printf("x[%d] = %lf\n",i,x[i]);
     }
-
-    int tracer = 1;
-    scanf("%d", &tracer);
-    if(tracer != 0) tracerPolynome(p);
 
     return 0;
 }

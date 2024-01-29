@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------------
+# Description de la démarche
+
+
 Ce projet consiste à évaluer efficacement des polynômes.
 
 Pour pouvoir tracer les graphiques, il faut installer :

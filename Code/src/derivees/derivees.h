@@ -6,6 +6,6 @@
 
 int *fact(int k);
 
-void deriveesEnAlpha(polynome p, double* b, double* deriv);
+//void deriveesEnAlpha(polynome p, double* b, double* deriv);
 
 #endif
