@@ -5,10 +5,7 @@
 #include <SDL2/SDL_ttf.h>
 
 #include "../poly/poly.h"
-
-
-double evaluerPolynome(polynome p, double x);
-
+#include "../alpha/alpha.h"
 
 void tracerPoints(SDL_Renderer* renderer, int screenWidth, int screenHeight, polynome p, int nombrePoints, double xMin, double xMax, double yMin, double yMax);
 

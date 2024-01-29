@@ -1,9 +1,0 @@
-Entrez le degré de votre polynôme :
-Entrez le coefficient 0 :
-Entrez le coefficient 1 :
-Entrez le coefficient 2 :
-Entrez le coefficient 3 :
-Entrez le coefficient 4 :
-0.0000000000000000 + 1.0000000000000000*x^{1} + 5.0000000000000000*x^{2} + 2.0000000000000000*x^{3} + 4.0000000000000000*x^{4}
-Entrez la valeur de alpha :
-P_n(2.0000000000000000)=102.0000000000000000

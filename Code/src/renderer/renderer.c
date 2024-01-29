@@ -5,36 +5,25 @@ int SCREEN_WIDTH = 800;
 int SCREEN_HEIGHT = 800;
 
 
-double evaluerPolynome(polynome p, double x) {
-    double resultat = 0.0;
-
-    for (int i = 0; i <= p.deg; ++i) {
-        resultat += p.coeffs[i] * pow(x, i);
-    }
-
-    return resultat;
-}
-
-
 void tracerPoints(SDL_Renderer* renderer, int screenWidth, int screenHeight, polynome p, int nombrePoints, double xMin, double xMax, double yMin, double yMax) {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderClear(renderer);
-
-    // Dessiner la grille, les axes, etc.
 
     // Tracer la série de points du polynôme
     SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255); // Couleur bleue
 
     double intervalle = (xMax - xMin) / (nombrePoints - 1);
 
+    double* b = malloc(sizeof(double)*(p.deg+1));
+
     for (int i = 1; i < nombrePoints; ++i) {
         double x1 = xMin + (i - 1) * intervalle;
-        double y1 = evaluerPolynome(p, x1);
+        double y1 = enAlpha(p, x1, b);
         int screenX1 = (i - 1) * screenWidth / (nombrePoints - 1);
         int screenY1 = screenHeight - (y1 - yMin) / (yMax - yMin) * screenHeight;
 
         double x2 = xMin + i * intervalle;
-        double y2 = evaluerPolynome(p, x2);
+        double y2 = enAlpha(p, x2, b);
         int screenX2 = i * screenWidth / (nombrePoints - 1);
         int screenY2 = screenHeight - (y2 - yMin) / (yMax - yMin) * screenHeight;
 

@@ -2,10 +2,18 @@
 
 #define DERIVEES_H
 
+#include <stdlib.h>
+#include <math.h>
+
 #include "../poly/poly.h"
 
-int *fact(int k);
+/*void calculerFact(int k);
 
-//void deriveesEnAlpha(polynome p, double* b, double* deriv);
+void libererFact();*/
+
+int fact(int k);
+
+void deriveesEnAlpha(polynome p, double alpha, double* b, double* deriv);
+
 
 #endif

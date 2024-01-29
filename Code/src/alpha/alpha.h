@@ -2,8 +2,12 @@
 
 #define ALPHA_H
 
+#include <math.h>
+
 #include "../poly/poly.h"
 
-void enAlpha(polynome p, double alpha, double* b);
+double enAlphaNaif(polynome p, double alpha);
+
+double enAlpha(polynome p, double alpha, double* b);
 
 #endif

@@ -18,8 +18,9 @@ double **creerMatrice(int n) {
     // remplissage
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            printf("Entrez le coeff (%d,%d)\n", i, j);
-            scanf("%lf", *(matrice + i) + j);
+            double coeff;
+            scanf("%lf", &coeff);
+            matrice[i][j] = coeff;
         }
     }
 
@@ -34,7 +35,7 @@ double **creerMatrice(int n) {
 void afficherMatrice(double **matrice, int n) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            printf("%9.2lf", *(*(matrice + i) + j));
+            printf("%.16lf", matrice[i][j]);
         }
         printf("\n");
     }
@@ -59,9 +60,12 @@ double *creerVecteur(int n) {
  * Paramètres : vecteur (double *), n (entier)
  * */
 void afficherVecteur(double *vecteur, int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%.3lf\n", *(vecteur + i));
+    printf("{ ");
+    for(int i=0; i<n; i++) {
+        printf("%.16lf", vecteur[i]);
+        if(i != n-1) printf(", ");
     }
+    printf(" }\n");
 }
 
 /*

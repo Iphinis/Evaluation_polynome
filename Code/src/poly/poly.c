@@ -14,15 +14,14 @@ polynome creerPolynome(int deg) {
 
 void remplirPolynome(polynome p) {
     for(int i=0; i <= p.deg; i++) {
-        printf("Entrez le coefficient %d :",i);
         scanf("%lf", &p.coeffs[i]);
-        printf("\n");
     }
 }
 
 void afficherPolynome(polynome p) {
     for(int i=0; i <= p.deg; i++) {
-        if(i == 0) printf("%.16lf", p.coeffs[i]);
+        if(i == 0) printf("%.16lf", p.coeffs[0]);
+        else if (i == 1) printf("%.16lf*x", p.coeffs[1]);
         else printf("%.16lf*x^{%d}", p.coeffs[i], i);
 
         if(i < p.deg) printf(" + ");
