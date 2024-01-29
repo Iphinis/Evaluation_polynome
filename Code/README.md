@@ -98,20 +98,6 @@ Dossier: src
      	--> définition de la fonction fact
      
      
-     Dossier : utils
-     Nomenclature : utils.c
-     Contenu :
-     	--> fonction afficherTab ayant pour paramètre un tableau t et un entier n. La fonction permet d'afficher chacune des valeurs du tableau t de taille n
-     	--> fonction ajouterSortie ayant pour paramètres une chaine de caractères chemin et une chaine de caractères contenu. La fonction permet d'afficher le contenu du fichier contenu se trouvant à l'adresse chemin, ou bien un message d'erreur si cela n'est pas possible
-     	--> fonction supprimerSortie ayant pour paramètre une chaine de caractères chemin. La fonction permet de retirer le chemin ou bien affiche un message d'erreur si cela n'est pas possible
-     
-     
-     Dossier : utils
-     Nomenclature : utils.h
-     Contenu :
-     	--> Définition des fonctions afficherTab; ajouterSortie et supprimerSortie
-     
-     
      Dossier : renderer
      Nomenclature : renderer.c
      Contenu :

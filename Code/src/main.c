@@ -35,7 +35,7 @@ int main() {
     if(tracer != 0) tracerPolynome(p);
 
 
-    // calculer Pn(alpha)
+    // calculer Pn(alpha) avec Horner
     double alpha;
     scanf("%lf", &alpha);
 
