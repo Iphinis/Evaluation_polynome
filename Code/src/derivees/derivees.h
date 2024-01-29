@@ -7,9 +7,9 @@
 
 #include "../poly/poly.h"
 
-/*void calculerFact(int k);
+int *calculerFact(int k);
 
-void libererFact();*/
+void libererFact(int *fact);
 
 int fact(int k);
 

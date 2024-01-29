@@ -4,9 +4,9 @@
 
 #include "poly/poly.h"
 #include "alpha/alpha.h"
-#include "matrices/matrice.h"
+//#include "matrices/matrice.h"
 #include "derivees/derivees.h"
-#include "renderer/renderer.h"
+//#include "renderer/renderer.h"
 
 
 int main() {
@@ -17,14 +17,14 @@ int main() {
     char output_file[100];
     snprintf(output_file, sizeof(output_file), "output/res_m%d.txt", machine);
     freopen(output_file, "w", stdout);
-     
+    
      
     // Creation du polynome Pn
     int deg;
     scanf("%u", &deg);
     assert(deg >= 0);
 
-    //polynome p = creerPolynome(deg);
+    polynome p = creerPolynome(deg);
     remplirPolynome(p);
     printf("Pn : ");
     afficherPolynome(p);
@@ -34,7 +34,7 @@ int main() {
     scanf("%lf", &alpha);
     
     // Calcul naïf de Pn en alpha	
-    printf("Naif : P_n(%.16lf)=%.16lf\n", alpha, enAlphaNaif(p, alpha));
+    //printf("Naif : P_n(%.16lf)=%.16lf\n", alpha, enAlphaNaif(p, alpha));
 
     // Calculer de Pn en alpha avec Horner
     double* b = malloc(sizeof(double)*(deg+1));
@@ -63,8 +63,7 @@ int main() {
     for (int i=0;i<5;i++){
     	printf("x[%d] = %lf\n",i,x[i]);
     }*/
-
-    //libererFact();
-
+    
+    
     return 0;
 }

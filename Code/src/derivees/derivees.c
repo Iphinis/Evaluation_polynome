@@ -6,32 +6,23 @@
 * Remplit le tableau de factorielles contenant 0!, 1!, ..., k!
 * Paramètre : k (entier)
 */
-/*void calculerFact(int k) {
-    fact = malloc(sizeof(int) * (k + 1));
+int *calculerFact(int k) {
+    int *fact = (int *) malloc(sizeof(int) * (k + 1));
 
     fact[0] = 1;
     fact[1] = 1;
-
     for (int i = 2; i <= k; i++) {
         fact[i] = fact[i - 1] * i;
     }
-}*/
+    return fact;
+    
+}
 
 /*
 Libère les factorielles de la mémoire
 */
-/*void libererFact() {
+void libererFact(int *fact) {
     free(fact);
-}*/
-
-
-// TODO: à optimiser, en stockant les valeurs de fact(n) dans un tableau de taille n+1 (de 0 à n), pour ne plus avoir à recalculer ces valeurs.
-int fact(int k) {
-    int res = 1;
-
-    for(int i=2; i <= k; i++) res *= i;
-
-    return res;
 }
 
 
@@ -42,19 +33,22 @@ int fact(int k) {
 void deriveesEnAlpha(polynome p, double alpha, double* b, double* deriv) {
     // Calcul des Rj
     double* r = calloc(p.deg+1, sizeof(double));
-
+   
     int n = p.deg;
+    
+    int * fact;
+    fact=calculerFact(n);
 
     r[n] = b[0];
-
+    
     for(int j=n-1; j >= 0; j--) {
         for(int i=n-j; i <= n; i++) {
-            r[j] += p.coeffs[j]*fact(i-n+j)/fact(n-j)*pow(alpha, i-n+j);
+            r[j] += p.coeffs[j]*fact[i-n+j]/fact[n-j]*pow(alpha, i-n+j);
         }
     }
     
     // Calcul des dérivées de Pn en alpha
     for(int j=0; j <= n; j++) {
-        deriv[j] = fact(j)*b[n-j];
+        deriv[j] = fact[j]*b[n-j];
     }
 }
