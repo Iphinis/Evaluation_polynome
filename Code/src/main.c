@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "utils/utils.h"
 #include "poly/poly.h"
 #include "alpha/alpha.h"
-#include "derivees/derivees.h"
-#include "renderer/renderer.h"
+#include "matrices/matrice.h"
+//#include "derivees/derivees.h"
+//#include "renderer/renderer.h"
 
 
 int main() {
@@ -14,13 +14,14 @@ int main() {
     int machine;
     scanf("%i", &machine);
 
-    char output_file[100];
+    //char output_file[100];
     snprintf(output_file, sizeof(output_file), "output/res_machine%d.txt", machine);
     freopen(output_file, "w", stdout);
      
      
     // creation du polynome Pn
     int deg;
+    printf("Entrez le degré de votre polynôme :\n");
     scanf("%u", &deg);
     assert(deg >= 0);
 
@@ -37,12 +38,13 @@ int main() {
 
     // calculer Pn(alpha) avec Horner
     double alpha;
+    printf("Entrez la valeur de alpha :\n");
     scanf("%lf", &alpha);
 
     double* b = malloc(sizeof(double)*(deg+1));
     enAlpha(p, alpha, b);
     printf("P_n(%.16lf)=%.16lf\n", alpha, b[0]);
-    afficherTab(b, deg+1);
+    afficherVecteur(b, deg+1);
 
 
     // calculer les n dérivées de Pn en alpha

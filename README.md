@@ -19,7 +19,6 @@ sudo apt-get install libsdl2-ttf-dev
 
 ## Méthode de Horner
 
-# A FAIRE (environ 5min)
 
 2. Ensuite on a décidé d'évaluer le même polynôme mais avec la méthode Horner. Pour cela, on a créer une fonction enAlpha dans les fichiers alpha.c et alpha.h. Cette partie correspond au chapitrage "calculer Pn(alpha) avec Horner" dans le fichier main.c. Vous retrouverez le résultat dans le fichier res_poly_Horner_mk.txt dans le dossier output.
 
