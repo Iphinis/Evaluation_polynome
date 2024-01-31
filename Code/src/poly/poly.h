@@ -2,6 +2,7 @@
 
 #define POLY_H
 
+
 typedef struct polynome {
     int deg;
     double* coeffs;

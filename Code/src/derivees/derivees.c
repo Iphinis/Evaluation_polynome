@@ -1,6 +1,5 @@
 #include "derivees.h"
 
-//int* fact;
 
 /*
 * Remplit le tableau de factorielles contenant 0!, 1!, ..., k!
@@ -32,10 +31,9 @@ void libererFact(int *fact) {
 */
 void deriveesEnAlpha(polynome p, double alpha, double* b, double* deriv) {
     // Calcul des Rj
-    double* r = calloc(p.deg+1, sizeof(double));
-   
     int n = p.deg;
-    
+    double* r = calloc(n+1, sizeof(double));
+   
     int * fact;
     fact=calculerFact(n);
 
@@ -43,12 +41,12 @@ void deriveesEnAlpha(polynome p, double alpha, double* b, double* deriv) {
     
     for(int j=n-1; j >= 0; j--) {
         for(int i=n-j; i <= n; i++) {
-            r[j] += p.coeffs[j]*fact[i-n+j]/fact[n-j]*pow(alpha, i-n+j);
+            r[j] += p.coeffs[i]*(fact[i]/(fact[n-j]*fact[i-n+j]))*pow(alpha, i-n+j);
         }
     }
     
     // Calcul des dérivées de Pn en alpha
     for(int j=0; j <= n; j++) {
-        deriv[j] = fact[j]*b[n-j];
+        deriv[n-j] = fact[n-j]*r[j];
     }
 }

@@ -1,5 +1,4 @@
 #include "alpha.h"
-#include <math.h>
 
 /*
 Evaluation naïve de Pn en alpha
