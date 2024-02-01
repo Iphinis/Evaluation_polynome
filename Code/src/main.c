@@ -7,7 +7,7 @@
 #include "alpha/alpha.h"
 #include "matrices/matrice.h"
 #include "derivees/derivees.h"
-#include "renderer/renderer.h"
+//#include "renderer/renderer.h"
 
 // TODO: bouger ces fonctions dans les fichiers c et h respectifs.
 
@@ -65,12 +65,12 @@ void AN1() {
     double *x;
     double *b2;
 
-    A=creerMatrice(5);
-    b2=creerVecteur(5);
+    A=creerMatrice();
+    b2=creerVecteur();
     x=methodeDescente(A,b2,5);
 
     for (int i=0;i<5;i++){
-    	printf("x[%d] = %lf\n",i,x[i]);
+    	printf("x[%d] = %.16lf\n",i,x[i]);
     }
 }
 
@@ -105,6 +105,7 @@ int main() {
         printf("r : afficher Pn\n");
         printf("p : entrer un autre polynôme Pn\n");
         printf("a : entrer un autre alpha\n");
+        printf("n : calculer Pn(alpha) de manière naïve\n");
         printf("h : calculer Pn(alpha) par la méthode de Horner\n");
         printf("d : calculer les dérivées de Pn en alpha\n");
         printf("6 : calculer P_6(2)\n");
@@ -127,13 +128,19 @@ int main() {
                 /*
                 TODO: corriger bug affichage intersection grille
                 */
-                tracerPolynome(p);
+                //tracerPolynome(p);
                 break;
 
             case 'a':
                 alpha = lireAlpha();
                 break;
 
+            case 'n':
+                double res;
+                res = enAlphaNaif(p, alpha);
+                printf("P_n(%.16lf) = %.16lf de manière naïve",alpha,res);
+                break;
+            
             case 'h':
                 b = horner(p, alpha);
                 printf("b : ");

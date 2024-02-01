@@ -41,7 +41,7 @@ void deriveesEnAlpha(polynome p, double alpha, double* b, double* deriv) {
     
     for(int j=n-1; j >= 0; j--) {
         for(int i=n-j; i <= n; i++) {
-            r[j] += p.coeffs[i]*(fact[i]/(fact[n-j]*fact[i-n+j]))*pow(alpha, i-n+j);
+            r[j] += p.coeffs[i]*(fact[i]/(fact[n-j]*fact[i-n+j]))* pow(alpha,i-n+j);
         }
     }
     

@@ -56,8 +56,8 @@ Compilateur: gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
 Editeur: VSCODE
 
 ## Machine 2 (m2)
-Nom : ?
-Mémoire vive: ?
+Nom : po-d82fx93
+Mémoire vive: 8,0 Gio
 Processeur: Intel® Core™ i7-10810U CPU @ 1.10GHz × 12
 Système d'exploitation : Ubuntu 22.04.3 LTS 64-bits
 Compilateur: gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
@@ -99,7 +99,7 @@ Editeur: ?
 
 
 
-# Codes:
+## Codes:
 Dossier: src
 
     Dossier : alpha

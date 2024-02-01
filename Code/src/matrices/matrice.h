@@ -1,11 +1,11 @@
 #ifndef MATRICES_H
 #define MATRICES_H
 
-double **creerMatrice(int n);
+double **creerMatrice();
 
 void afficherMatrice(double **matrice, int n);
 
-double *creerVecteur(int n);
+double *creerVecteur();
 
 void afficherVecteur(double *vecteur, int n);
 

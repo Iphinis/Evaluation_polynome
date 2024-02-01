@@ -14,6 +14,7 @@ polynome creerPolynome(int deg) {
 
 void remplirPolynome(polynome p) {
     for(int i=0; i <= p.deg; i++) {
+        printf("Coefficient du degré %d : ",i);
         scanf("%lf", &p.coeffs[i]);
     }
 }

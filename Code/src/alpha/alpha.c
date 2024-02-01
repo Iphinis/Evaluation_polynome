@@ -1,5 +1,4 @@
 #include "alpha.h"
-
 /*
 Evaluation naïve de Pn en alpha
 Paramètres: p (polynome), alpha (double)
@@ -9,7 +8,7 @@ double enAlphaNaif(polynome p, double alpha) {
     double resultat = 0.0;
 
     for (int i = 0; i <= p.deg; ++i) {
-        resultat += p.coeffs[i] * pow(alpha, i);
+        resultat += p.coeffs[i] * pow(alpha,i);
     }
 
     return resultat;

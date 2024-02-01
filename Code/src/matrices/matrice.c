@@ -8,23 +8,33 @@
  * Paramètre : n (entier)
  *
  * */
-double **creerMatrice(int n) {
+double **creerMatrice() {
     // initialisation
-    double **matrice = (double **) malloc(sizeof(double *) * n);
-    for (int k = 0; k < n; k++) {
-        *(matrice + k) = (double *) malloc(sizeof(double) * n);
+    double **A = (double **) malloc(sizeof(double *) * 5);
+    for (int k = 0; k < 5; k++) {
+        *(A + k) = (double *) malloc(sizeof(double) * 5);
     }
 
     // remplissage
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            double coeff;
-            scanf("%lf", &coeff);
-            matrice[i][j] = coeff;
-        }
+    for (int i=0;i<5;i++){
+    	for (int j=0;j<5;j++){
+    		A[i][j]=0;
+    	}
     }
+    A[0][0]=1;
+    A[1][1]=1;
+    A[2][2]=1;
+    A[3][3]=1;
+    A[4][4]=1;
+    A[2][0]=1;
+    A[3][1]=1;
+    A[4][2]=1;
+    A[1][0]=-4;
+    A[2][1]=-4;
+    A[3][2]=-4;
+    A[4][3]=-4;
 
-    return matrice;
+    return A;
 }
 
 /*
@@ -46,12 +56,13 @@ void afficherMatrice(double **matrice, int n) {
  * Paramètre : n (entier)
  *
  * */
-double *creerVecteur(int n) {
-    double *vecteur = (double *) malloc(sizeof(double) * n);
-    for (int i = 0; i < n; i++) {
-        printf("%d-ieme composante : \n", i);
-        scanf("%lf", vecteur + i);
-    }
+double *creerVecteur() {
+    double *vecteur = (double *) malloc(sizeof(double) * 5);
+    vecteur[0]=-4;
+    vecteur[1]=1;
+    vecteur[2]=0;
+    vecteur[3]=0;
+    vecteur[4]=-2.5;
     return vecteur;
 }
 
