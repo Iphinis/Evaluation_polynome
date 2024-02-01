@@ -30,3 +30,27 @@ void afficherPolynome(polynome p) {
     }
     printf("\n");
 }
+
+polynome lirePolynome() {
+    // Creation du polynome Pn
+    int deg;
+    printf("Degré de Pn: ");
+    scanf("%u", &deg);
+    assert(deg >= 0);
+
+    polynome p = creerPolynome(deg);
+    remplirPolynome(p);
+
+    return p;
+}
+
+double* horner(polynome p, double alpha) {    
+    // Calcul naïf de Pn en alpha
+    // printf("Naif : P_n(%.16lf)=%.16lf\n", alpha, enAlphaNaif(p, alpha));
+
+    // Calculer de Pn en alpha avec Horner
+    double* b = malloc(sizeof(double)*(p.deg+1));
+    printf("Horner : P_n(%.16lf)=%.16lf\n", alpha, enAlpha(p, alpha, b));
+
+    return b;
+}

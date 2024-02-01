@@ -15,5 +15,7 @@ int fact(int k);
 
 void deriveesEnAlpha(polynome p, double alpha, double* b, double* deriv);
 
+double* derivees(polynome p, double alpha, double* b);
+
 
 #endif

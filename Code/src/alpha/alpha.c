@@ -27,3 +27,15 @@ double enAlpha(polynome p, double alpha, double* b) {
 
     return b[0];
 }
+
+double lireAlpha() {
+    double alpha;
+    printf("Entrez alpha: ");
+    scanf("%lf", &alpha);
+
+    return alpha;
+}
+
+void afficherAlpha(double alpha) {
+    printf("alpha: %.16lf\n", alpha);
+}

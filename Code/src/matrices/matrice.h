@@ -13,4 +13,6 @@ double *methodeDescente(double **matrice, double *b, int n);
 
 double *multiplicationMatriceVect(double **matrice, double *x, int n);
 
+void AN1();
+
 #endif

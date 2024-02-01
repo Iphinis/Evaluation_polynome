@@ -10,4 +10,8 @@ double enAlphaNaif(polynome p, double alpha);
 
 double enAlpha(polynome p, double alpha, double* b);
 
+double lireAlpha();
+
+void afficherAlpha(double alpha);
+
 #endif

@@ -14,4 +14,8 @@ void remplirPolynome(polynome p);
 
 void afficherPolynome(polynome p);
 
+polynome lirePolynome();
+
+double* horner(polynome p, double alpha);
+
 #endif

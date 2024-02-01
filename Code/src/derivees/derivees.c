@@ -50,3 +50,12 @@ void deriveesEnAlpha(polynome p, double alpha, double* b, double* deriv) {
         deriv[n-j] = fact[n-j]*r[j];
     }
 }
+
+// Calcul des n dérivées de Pn en alpha
+double* derivees(polynome p, double alpha, double* b) {
+    double* deriv = malloc(sizeof(double)*(p.deg+1));
+    deriveesEnAlpha(p, alpha, b, deriv);
+
+    return deriv;
+}
+

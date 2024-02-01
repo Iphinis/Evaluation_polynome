@@ -113,3 +113,18 @@ double *multiplicationMatriceVect(double **matrice, double *x, int n) {
     }
     return solution;
 }
+
+void AN1() {
+    // Calcul de P6(2) avec algo de descente
+    double **A;
+    double *x;
+    double *b2;
+
+    A=creerMatrice();
+    b2=creerVecteur();
+    x=methodeDescente(A,b2,5);
+
+    for (int i=0;i<5;i++){
+    	printf("x[%d] = %.16lf\n",i,x[i]);
+    }
+}
