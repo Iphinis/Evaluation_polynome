@@ -7,27 +7,70 @@
 #include "alpha/alpha.h"
 #include "matrices/matrice.h"
 #include "derivees/derivees.h"
-//#include "renderer/renderer.h"
+#include "renderer/renderer.h"
 
-int main() {
-    /* TODO : selon le numéro de machine, lire les fichiers d'entrée, et écrire dans les fichiers de sortie
 
-    // Numero de la machine (pour les fichiers d'entrée et de sortie)
-    int machine;
-    printf("Numéro de machine: ");
-    scanf("%i", &machine);
+/*
+Mode automatique : lire et écrire dans les fichiers d'input/output selon le numéro de la machine
+Paramètre: machine (entier)
+*/
+int modeAutomatique(int machine) {
+    // Définir l'entrée
+    char input_file[100];
+    snprintf(input_file, sizeof(input_file), "input/donnees_m%d.txt", machine);
+    FILE *savedStdin = freopen(input_file, "r", stdin);
 
+    if (savedStdin == NULL) {
+        fprintf(stderr, "Erreur lors de la redirection de stdin vers %s\n", input_file);
+        return EXIT_FAILURE;
+    }
+
+    // Définir la sortie
     char output_file[100];
     snprintf(output_file, sizeof(output_file), "output/res_m%d.txt", machine);
-    freopen(output_file, "w", stdout);
-    */
+    FILE *savedStdout = freopen(output_file, "w", stdout);
 
+    if (savedStdout == NULL) {
+        fprintf(stderr, "Erreur lors de la redirection de stdout vers %s\n", input_file);
+        return EXIT_FAILURE;
+    }
+
+    // Actions
+    polynome p = lirePolynome(1);
+    afficherPolynome(p);
+
+    double alpha = lireAlpha(1);
+    double* b = NULL;
+    double* deriv = NULL;
+
+    tracerPolynome(p);
+
+    alpha = lireAlpha(1);
+
+    double res;
+    res = enAlphaNaif(p, alpha);
+    printf("P_n(%.16lf) = %.16lf de manière naïve\n", alpha, res);
+
+    b = horner(p, alpha);
+    printf("b : ");
+    afficherVecteur(b, p.deg+1);
+
+    deriv = derivees(p, alpha, b);
+    printf("Dérivées : ");
+    afficherVecteur(deriv, p.deg+1);
+
+    AN1();
+
+    return EXIT_SUCCESS;
+}
+
+void modeManuel() {
     // Lire polynôme
-    polynome p = lirePolynome();
+    polynome p = lirePolynome(2);
     afficherPolynome(p);
     
     // Lire alpha
-    double alpha = lireAlpha();
+    double alpha = lireAlpha(2);
     double* b = NULL;
 
     double* deriv = NULL;
@@ -54,25 +97,22 @@ int main() {
             case 'q':
                 break;
             case 'p':
-                p = lirePolynome();
+                p = lirePolynome(2);
                 afficherPolynome(p);
                 break;
 
             case 'r':
-                /*
-                TODO: corriger bug affichage intersection grille
-                */
-                //tracerPolynome(p);
+                tracerPolynome(p);
                 break;
 
             case 'a':
-                alpha = lireAlpha();
+                alpha = lireAlpha(2);
                 break;
 
             case 'n':
                 double res;
                 res = enAlphaNaif(p, alpha);
-                printf("P_n(%.16lf) = %.16lf de manière naïve",alpha,res);
+                printf("P_n(%.16lf) = %.16lf de manière naïve\n",alpha,res);
                 break;
             
             case 'h':
@@ -88,7 +128,7 @@ int main() {
                     afficherVecteur(deriv, p.deg+1);
                 }
                 else {
-                    printf("Erreur: Il faut calculer les bj avec la commande 'a' avant de pouvoir calculer les dérivées de Pn en alpha\n");
+                    printf("Erreur: Il faut calculer les bj avec la méthode de Horner (commande 'h') avant de pouvoir calculer les dérivées de Pn en alpha\n");
                 }
                 break;
             
@@ -101,7 +141,32 @@ int main() {
                 break;
         }
     } while(choix != 'q');
-    
+}
+
+int main() {
+    int mode;
+    printf("Veuillez lire la documentation pour comprendre les cas d'utilisation des différents modes\n");
+    printf("Choisissez le mode d'utilisation (1 pour automatique, 2 pour manuel): ");
+    scanf("%i", &mode);
+
+    switch (mode)
+    {
+        case 1:
+            int machine;
+            printf("Numéro de machine: ");
+            scanf("%i", &machine);
+            modeAutomatique(machine);
+            break;
+        
+        case 2:
+            modeManuel();
+            break;
+        
+        default:
+            printf("Mode non reconnu. Fin du programme.\n");
+            return 1;
+            break;
+    }    
     
     return 0;
 }

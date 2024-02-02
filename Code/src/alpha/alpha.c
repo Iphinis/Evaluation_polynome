@@ -1,4 +1,6 @@
 #include "alpha.h"
+
+
 /*
 Evaluation naïve de Pn en alpha
 Paramètres: p (polynome), alpha (double)
@@ -28,9 +30,9 @@ double enAlpha(polynome p, double alpha, double* b) {
     return b[0];
 }
 
-double lireAlpha() {
+double lireAlpha(int mode) {
     double alpha;
-    printf("Entrez alpha: ");
+    if(mode == 2) printf("Entrez alpha: ");
     scanf("%lf", &alpha);
 
     return alpha;
@@ -38,4 +40,15 @@ double lireAlpha() {
 
 void afficherAlpha(double alpha) {
     printf("alpha: %.16lf\n", alpha);
+}
+
+double* horner(polynome p, double alpha) {    
+    // Calcul naïf de Pn en alpha
+    // printf("Naif : P_n(%.16lf)=%.16lf\n", alpha, enAlphaNaif(p, alpha));
+
+    // Calculer de Pn en alpha avec Horner
+    double* b = malloc(sizeof(double)*(p.deg+1));
+    printf("Horner : P_n(%.16lf)=%.16lf\n", alpha, enAlpha(p, alpha, b));
+
+    return b;
 }

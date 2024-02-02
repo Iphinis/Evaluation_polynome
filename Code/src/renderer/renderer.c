@@ -9,6 +9,20 @@ void tracerPoints(SDL_Renderer* renderer, int screenWidth, int screenHeight, pol
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderClear(renderer);
 
+    // Dessiner la grille
+    SDL_SetRenderDrawColor(renderer, 200, 200, 200, 255);
+    for (int x = 0; x < screenWidth; x += screenWidth / 20) {
+        SDL_RenderDrawLine(renderer, x, 0, x, screenHeight);
+    }
+    for (int y = 0; y < screenHeight; y += screenHeight / 20) {
+        SDL_RenderDrawLine(renderer, 0, y, screenWidth, y);
+    }
+
+    // Axes des abscisses et ordonnées
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderDrawLine(renderer, 0, screenHeight / 2, screenWidth, screenHeight / 2); // Axe des abscisses
+    SDL_RenderDrawLine(renderer, screenWidth / 2, 0, screenWidth / 2, screenHeight); // Axe des ordonnées
+
     // Tracer la série de points du polynôme
     SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255); // Couleur bleue
 
@@ -29,20 +43,6 @@ void tracerPoints(SDL_Renderer* renderer, int screenWidth, int screenHeight, pol
 
         SDL_RenderDrawLine(renderer, screenX1, screenY1, screenX2, screenY2);
     }
-
-    // Dessiner la grille
-    SDL_SetRenderDrawColor(renderer, 200, 200, 200, 255);
-    for (int x = 0; x < screenWidth; x += screenWidth / 20) {
-        SDL_RenderDrawLine(renderer, x, 0, x, screenHeight);
-    }
-    for (int y = 0; y < screenHeight; y += screenHeight / 20) {
-        SDL_RenderDrawLine(renderer, 0, y, screenWidth, y);
-    }
-
-    // Axes des abscisses et ordonnées
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    SDL_RenderDrawLine(renderer, 0, screenHeight / 2, screenWidth, screenHeight / 2); // Axe des abscisses
-    SDL_RenderDrawLine(renderer, screenWidth / 2, 0, screenWidth / 2, screenHeight); // Axe des ordonnées
 
     // Afficher les valeurs des axes
     TTF_Init();

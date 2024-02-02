@@ -1,8 +1,5 @@
 #include "poly.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-
 polynome creerPolynome(int deg) {
     polynome p;
 
@@ -12,10 +9,11 @@ polynome creerPolynome(int deg) {
     return p;
 }
 
-void remplirPolynome(polynome p) {
+void remplirPolynome(polynome p, int mode) {
     for(int i=0; i <= p.deg; i++) {
         printf("Coefficient du degré %d : ",i);
         scanf("%lf", &p.coeffs[i]);
+        if(mode == 1) printf("%.16lf\n", p.coeffs[i]);
     }
 }
 
@@ -31,26 +29,16 @@ void afficherPolynome(polynome p) {
     printf("\n");
 }
 
-polynome lirePolynome() {
+polynome lirePolynome(int mode) {
     // Creation du polynome Pn
     int deg;
     printf("Degré de Pn: ");
     scanf("%u", &deg);
     assert(deg >= 0);
+    if(mode == 1) printf("%d\n", deg);
 
     polynome p = creerPolynome(deg);
-    remplirPolynome(p);
+    remplirPolynome(p, mode);
 
     return p;
-}
-
-double* horner(polynome p, double alpha) {    
-    // Calcul naïf de Pn en alpha
-    // printf("Naif : P_n(%.16lf)=%.16lf\n", alpha, enAlphaNaif(p, alpha));
-
-    // Calculer de Pn en alpha avec Horner
-    double* b = malloc(sizeof(double)*(p.deg+1));
-    printf("Horner : P_n(%.16lf)=%.16lf\n", alpha, enAlpha(p, alpha, b));
-
-    return b;
 }
