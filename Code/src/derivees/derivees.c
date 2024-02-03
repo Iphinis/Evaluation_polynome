@@ -25,10 +25,9 @@ int calculerFact(int n) {
             calculated[i] = i * calculated[i - 1];
         }
         saved_fac = n;
-        return calculated[n];
-    } else {
-        return calculated[n];
     }
+    
+    return calculated[n];
 }
 
 /*
