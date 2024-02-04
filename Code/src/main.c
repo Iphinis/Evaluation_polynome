@@ -8,7 +8,7 @@
 #include "alpha/alpha.h"
 #include "matrices/matrice.h"
 #include "derivees/derivees.h"
-#include "renderer/renderer.h"
+//#include "renderer/renderer.h"
 
 
 /*
@@ -44,7 +44,7 @@ int modeAutomatique(int machine) {
     double* b = (double*) malloc(sizeof(double) * (p.deg+1));;
     double* deriv = (double*) malloc(sizeof(double) * (p.deg+1));;
 
-    tracerPolynome(p);
+    //tracerPolynome(p);
 
     alpha = lireAlpha(1);
 
@@ -96,6 +96,7 @@ void modeManuel() {
         printf("n : calculer Pn(alpha) de manière naïve\n");
         printf("h : calculer Pn(alpha) par la méthode de Horner\n");
         printf("d : calculer les dérivées de Pn en alpha\n");
+        printf("t : calculer Pn(alpha) par la méthode de descente\n");
         printf("c : calculer Pn(alpha) par la méthode de Clenshaw\n");
         printf("6 : calculer ln(10+6x) par la méthode de Clenshaw\n");
         printf("7 : calculer 10+6x par la méthode de Clenshaw\n");
@@ -115,7 +116,7 @@ void modeManuel() {
                 break;
 
             case 'r':
-                tracerPolynome(p);
+                //tracerPolynome(p);
                 break;
 
             case 'a':
@@ -157,9 +158,20 @@ void modeManuel() {
                 }
                 break;
             
+            case 't':
+                int n;
+                printf("Entrez le degré de votre polynome dans la base de Tchebyshev :\n");
+                scanf("%d",&n);
+                AN1(alpha, n);
+                break;
+            
             case 'c':
-                AN1(alpha, p.deg);
-                //enAlphaC(alpha,b,n);
+                int n;
+                printf("Entrez le degré de votre polynome dans la base de Tchebyshev :\n");
+                scanf("%d",&n);
+                double bc[n];
+                bc=creerVecteur(n)
+                enAlphaC(alpha,bc,n);
                 break;
             
             case '6':

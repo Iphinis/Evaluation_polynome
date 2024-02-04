@@ -116,7 +116,7 @@ double *multiplicationMatriceVect(double **matrice, double *x, int n) {
 }
 
 void AN1(double alpha, int n) {
-    // Calcul de Pn(alpha) avec méthode de Clenshaw
+    // Calcul de Pn(alpha) avec méthode de descente
     double **A;
     double *x;
     double *b2;
