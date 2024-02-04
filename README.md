@@ -10,21 +10,31 @@ sudo apt-get install libsdl2-ttf-dev
 --------------------------------------------------------------------------------------
 # Description de la démarche
 
+## Introduction
+Pour exécuter correctement le code et de la même façon sur toutes les machines, nous avons créé un Makefile. Le compilateur est gcc mais il est possible de le changer en modifiant le paramètre CC du Makefile.
+
+Nous avons décidé de mettre en places 2 modes d'exécution de notre code : automatique (mode 1) et manuel (mode 2). Le mode est choisi au début de l'exécution.
+
+ - Le mode automatique demande uniquement le numéro de machine qu'on note k, et va lire les données du dossier input/ pour écrire les résultats des instructions qui vont être effectuées dans output/mk/. Il n'y a donc rien à saisir à part le numéro de la machine, comme dit, tout est automatique.
+
+ - Le mode manuel est une interface homme-machine en ligne de commande qui permet d'interagir avec le programme en direct à l'aide de commandes qui sont affichées à l'écran. Il ne lit/n'écrit pas dans des fichiers. C'est uniquement pour tester en direct toutes les fonctions à disposition.
+
+
 ## Approche naïve
 
-1. Tout d'abord, on a commencé par vouloir évaluer un polynôme en n'importe quel valeur alpha de manière classique. Pour cela, on a créé les fichiers poly.c et poly.h, contenant la description des fonctions creerPolynome et remplirPolynome; et les fichiers alpha.c et alpha.h contenant la description de la fonction enAlphaNaif. Ensuite, on a testé nos fonctions en évaluant un polynôme de degré 2, ayant pour coefficient {1,2,3} en une valeur alpha=10. 
+1. Tout d'abord, on a commencé par vouloir évaluer un polynôme en n'importe quel valeur alpha de manière classique. Pour cela, on a créé les fichiers poly.c et poly.h, contenant la description des fonctions creerPolynome et remplirPolynome; et les fichiers alpha.c et alpha.h contenant la description de la fonction enAlphaNaif.
 
-Le fichier de données utilisé est le fichier donnees_naif_mk.txt. Il est constitué comme suit :
+A cet instant, on s'est dit qu'il serait intéressant d'observer l'allure des polynômes. C'est pourquoi on a créé les fichiers renderer.c et renderer.h qui utilisent la librairie SDL (cf prérequis).
 
-2 : Mode manuel
-2 : Degré du polynôme
-1 : 1er coefficient
-2 : 2ème coefficient
-3 : 3ème coefficient
-10 : alpha
-n : Calcul naïf
+Ensuite, on a testé nos fonctions en évaluant un polynôme de degré 3, ayant pour coefficient {1,-2,3, 4} en une valeur alpha=-0.75.
 
- Vous retrouverez le résultat dans le fichier res_naif_mk.txt dans le dossier output.
+Le fichier de données utilisé est le fichier donnees_naif.txt. Il est constitué comme suit :
+
+3 : Degré du polynôme
+1 -2 3 4 : coefficients
+-0.75 : alpha
+
+Vous retrouverez le résultat dans le fichier res_naif_mk.txt dans le dossier output/mk/, avec k qui est le numéro de la machine qui a exécuté le code.
 
 
 ## Méthode de Horner
@@ -101,15 +111,12 @@ c : Algo de Clenshaw
 
 Vous retrouverez le résultat dans le fichier res_AN_P6_2_c_mk.txt dans le dossier output.
 
-
-## Affichage des polynômes
-
-6. A cet instant, on s'est dit qu'il serait intéressant d'observer l'allure des polynômes. C'est pourquoi on a créé les fichiers renderer.c et renderer.h. On souhaite visualiser l'allure des 2 mêmes polynômes vu précédemment. Vous retrouverez le résultat dans le fichier res_poly_affichage_mk.txt dans le dossier output.
+On visualise l'allure des 2 mêmes polynômes vu précédemment avec SDL.
 
 
 ## Calcul de ln(10+6x)
 
-7. L'objectif de cette partie est d'appliquer la méthode de Clenshaw pour déterminer une approximation de la valeur de ln(10+6x) à 10**-4 près. 
+6. L'objectif de cette partie est d'appliquer la méthode de Clenshaw pour déterminer une approximation de la valeur de ln(10+6x) à 10**-4 près. 
 
 On peut soit l'effectuer matriciellement par application de la méthode descente, soit le faire directement par la méthode de Clenshaw, ce qui est bien moins couteux. Donc nous avons décider de le faire avec la méthode de Clenshaw.
 
@@ -128,7 +135,7 @@ Vous retrouverez les résultats dans les fichiers res_ln_0.2_mk.txt ; res_ln_-1_
 
 ## Calcul de (10+x)/(101+20x)
 
-8. L'objectif de cette partie est d'appliquer la méthode de Clenshaw pour déterminer une approximation de la valeur de (10+x)/(101+20x) à 10**-5 près. 
+7. L'objectif de cette partie est d'appliquer la méthode de Clenshaw pour déterminer une approximation de la valeur de (10+x)/(101+20x) à 10**-5 près. 
 
 De même, nous avons décider de le faire avec la méthode de Clenshaw en évitant la méthode de descente.
 
@@ -164,14 +171,6 @@ Processeur: Intel® Core™ i7-10810U CPU @ 1.10GHz × 12
 Système d'exploitation : Ubuntu 22.04.3 LTS 64-bits
 Compilateur: gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
 Editeur: VSCODE
-
-## Machine 3 (m3)
-Nom : ?
-Processeur: ?
-Mémoire vive: ?
-Système d'exploitation : ?
-Compilateur: ?
-Editeur: ?
 
 
 --------------------------------------------------------------------------------------

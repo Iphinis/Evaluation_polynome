@@ -1,6 +1,6 @@
 #include "renderer.h"
 
-
+// Dimensions de la fenêtre
 int SCREEN_WIDTH = 800;
 int SCREEN_HEIGHT = 800;
 
@@ -46,7 +46,7 @@ void tracerPoints(SDL_Renderer* renderer, int screenWidth, int screenHeight, pol
 
     // Afficher les valeurs des axes
     TTF_Init();
-    TTF_Font* font = TTF_OpenFont("src/renderer/arial.ttf", 16); // Vous pouvez ajuster la taille
+    TTF_Font* font = TTF_OpenFont("src/renderer/arial.ttf", 16);
 
     if (font == NULL) {
         fprintf(stderr, "Erreur lors de l'ouverture de la police : %s\n", TTF_GetError());
@@ -99,7 +99,7 @@ void tracerPoints(SDL_Renderer* renderer, int screenWidth, int screenHeight, pol
 }
 
 
-int tracerPolynome(polynome p) {
+void tracerPolynome(polynome p) {
     SDL_Init(SDL_INIT_VIDEO);
     SDL_Event event;
 
@@ -108,7 +108,7 @@ int tracerPolynome(polynome p) {
     if (window == NULL) {
         printf("Erreur lors de la création de la fenêtre SDL : %s\n", SDL_GetError());
         SDL_Quit();
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
 
     // Création du rendu SDL
@@ -117,7 +117,7 @@ int tracerPolynome(polynome p) {
         printf("Erreur lors de la création du rendu SDL : %s\n", SDL_GetError());
         SDL_DestroyWindow(window);
         SDL_Quit();
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
 
     // Paramètres
@@ -169,6 +169,4 @@ int tracerPolynome(polynome p) {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
-
-    return EXIT_SUCCESS;
 }

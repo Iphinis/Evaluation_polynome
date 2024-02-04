@@ -3,7 +3,7 @@
 #--------------------------------
 # compilation
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 LIBS = -lm -lSDL2 -lSDL2_ttf
 
 EXEC = a.out

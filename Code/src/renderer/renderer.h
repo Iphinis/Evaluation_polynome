@@ -10,7 +10,7 @@
 void tracerPoints(SDL_Renderer* renderer, int screenWidth, int screenHeight, polynome p, int nombrePoints, double xMin, double xMax, double yMin, double yMax);
 
 
-int tracerPolynome(polynome p);
+void tracerPolynome(polynome p);
 
 
 #endif
