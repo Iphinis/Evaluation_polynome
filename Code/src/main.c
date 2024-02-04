@@ -159,19 +159,21 @@ void modeManuel() {
                 break;
             
             case 't':
-                int n;
-                printf("Entrez le degré de votre polynome dans la base de Tchebyshev :\n");
-                scanf("%d",&n);
-                AN1(alpha, n);
+                int n2;
+                printf("Entrez le degré dans la base de Tchebychev :\n");
+                scanf("%d",&n2);
+                AN1(alpha, n2);
                 break;
             
             case 'c':
-                int n;
-                printf("Entrez le degré de votre polynome dans la base de Tchebyshev :\n");
-                scanf("%d",&n);
-                double bc[n];
-                bc=creerVecteur(n)
-                enAlphaC(alpha,bc,n);
+                int n3;
+                printf("Entrez le degrédans la base de Tchebychev :\n");
+                scanf("%d",&n3);
+                double *bc;
+                double resc;
+                bc=creerVecteur(n3);
+                resc = enAlphaC(alpha,bc,n3);
+                printf("res = %.16lf\n",resc);
                 break;
             
             case '6':

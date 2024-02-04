@@ -36,7 +36,7 @@ Voici les polynomes tests :
 1) 1 + 3x**2 + 2 x**3 + 6x**5 en x=3.2
 2) x - 4x**2 + 7x**5 - 3x**6 en x=-5.1
 
-Les fichiers de données utilisés sont donnes_h_5_3.2_mk.txt et donnes_h_6_-5.1_mk.txt dans le dossier input. Ils sont constitués comme suit :
+Les fichiers de données utilisés sont donnees_h_5_3.2_mk.txt et donnees_h_6_-5.1_mk.txt dans le dossier input. Ils sont constitués comme suit :
 
 2 : Mode manuel
 5 ou 6 : Degré du polynôme
@@ -51,7 +51,7 @@ Vous retrouverez les résultats dans les fichiers res_h_5_3.2_mk.txt et res_h_6_
 
 3. Ensuite, on a décidé de calculer chacune des dérivées des deux polynômes évalués précédemment. Pour cela, on a créé les fichiers derivees.c et derivees.h contenant une fonction calculerFact et une fonction deriveesEnAlpha. On a ensuite calculer chacune des dérivées du polynôme en alpha. 
 
-Les fichiers de données utilisés sont donnes_d_5_3.2_mk.txt et donnes_d_6_-5.1_mk.txt dans le dossier input. Ils sont constitués comme suit :
+Les fichiers de données utilisés sont donnees_d_5_3.2_mk.txt et donnees_d_6_-5.1_mk.txt dans le dossier input. Ils sont constitués comme suit :
 
 2 : Mode manuel
 5 ou 6 : Degré du polynôme
@@ -74,7 +74,7 @@ On a donc appliqué la méthode de descente avec         ( 1  0  0  0  0)
                                                    
                                                    b = (-4 1 0 0 -2.5)T.
 
-Le fichier de données utilisé est le fichier donnes_AN_P6_2_t_mk.txt. Il est constitué comme suit :
+Le fichier de données utilisé est le fichier donnees_AN_P6_2_t_mk.txt. Il est constitué comme suit :
 
 2 : Mode manuel
 0 : Permet de passer rapidement la création du polynome dans la base classique
@@ -89,7 +89,7 @@ Vous retrouverez le résultat dans le fichier res_AN_P6_2_t_mk.txt dans le dossi
 
 5. On a fait de même avec la méthode de Clenshaw, sans passer par la méthode de descente.  
 
-Le fichier de données utilisé est le fichier donnes_AN_P6_2_c_mk.txt. Il est constitué comme suit :
+Le fichier de données utilisé est le fichier donnees_AN_P6_2_c_mk.txt. Il est constitué comme suit :
 
 2 : Mode manuel
 0 : Permet de passer rapidement la création du polynome dans la base classique
@@ -115,7 +115,7 @@ On peut soit l'effectuer matriciellement par application de la méthode descente
 
 On a donc appliqué l'algorithme de Clenshaw avec alpha=0.2 dans un premier temps. puis ensuite avec des valeurs aux extremités : alpha=-1 et alpha=1.
 
-Les fichiers de données utilisés sont donnes_ln_0.2_mk.txt ; donnes_ln_-1_mk.txt et donnes_ln_1_mk.txt dans le dossier input. Ils sont constitués comme suit :
+Les fichiers de données utilisés sont donnees_ln_0.2_mk.txt ; donnees_ln_-1_mk.txt et donnees_ln_1_mk.txt dans le dossier input. Ils sont constitués comme suit :
 
 2 : Mode manuel
 0 : Permet de passer rapidement la création du polynome dans la base classique
@@ -134,7 +134,7 @@ De même, nous avons décider de le faire avec la méthode de Clenshaw en évita
 
 On a donc appliqué l'algorithme de Clenshaw avec alpha=0.2 et alpha=-0.7.
 
-Les fichiers de données utilisés sont donnes_10x_0.2_mk.txt et donnes_10x_-0.7_mk.txt dans le dossier input. Ils sont constitués comme suit :
+Les fichiers de données utilisés sont donnees_10x_0.2_mk.txt et donnees_10x_-0.7_mk.txt dans le dossier input. Ils sont constitués comme suit :
 
 2 : Mode manuel
 0 : Permet de passer rapidement la création du polynome dans la base classique
