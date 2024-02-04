@@ -40,8 +40,8 @@ int modeAutomatique(int machine) {
     afficherPolynome(p);
 
     double alpha = lireAlpha(1);
-    double* b = NULL;
-    double* deriv = NULL;
+    double* b = (double*) malloc(sizeof(double) * (p.deg+1));;
+    double* deriv = (double*) malloc(sizeof(double) * (p.deg+1));;
 
     tracerPolynome(p);
 
@@ -49,13 +49,13 @@ int modeAutomatique(int machine) {
 
     double res;
     res = enAlphaNaif(p, alpha);
-    printf("P_n(%.16lf) = %.16lf de manière naïve\n", alpha, res);
+    printf("Naif : P_n(%.16lf) = %.16lf\n", alpha, res);
 
-    b = horner(p, alpha);
+    printf("Horner : P_n(%.16lf) = %.16lf\n", alpha, enAlpha(p, alpha, b));
     printf("b : ");
     afficherVecteur(b, p.deg+1);
 
-    deriv = derivees(p, alpha, b);
+    deriveesEnAlpha(p, alpha, b, deriv);
     printf("Dérivées : ");
     afficherVecteur(deriv, p.deg+1);
 
@@ -112,23 +112,35 @@ void modeManuel() {
             case 'n':
                 double res;
                 res = enAlphaNaif(p, alpha);
-                printf("P_n(%.16lf) = %.16lf de manière naïve\n",alpha,res);
+                printf("Naif : P_n(%.16lf) = %.16lf\n",alpha,res);
                 break;
             
             case 'h':
-                b = horner(p, alpha);
+                if(b != NULL) {
+                    free(b);
+                    b = NULL;
+                }
+                else b = (double*) malloc(sizeof(double) * (p.deg+1));
+
+                printf("Horner : P_n(%.16lf) = %.16lf\n", alpha, enAlpha(p, alpha, b));
                 printf("b : ");
                 afficherVecteur(b, p.deg+1);
                 break;
 
             case 'd':
                 if(b != NULL) {
-                    deriv = derivees(p, alpha, b);
+                    if(deriv != NULL) {
+                        free(deriv);
+                        deriv = NULL;
+                    }
+                    else deriv = (double*) malloc(sizeof(double) * (p.deg+1));
+
+                    deriveesEnAlpha(p, alpha, b, deriv);
                     printf("Dérivées : ");
                     afficherVecteur(deriv, p.deg+1);
                 }
                 else {
-                    printf("Erreur: Il faut calculer les bj avec la méthode de Horner (commande 'h') avant de pouvoir calculer les dérivées de Pn en alpha\n");
+                    printf("Erreur: Il faut calculer b avec la méthode de Horner (commande 'h') avant de pouvoir calculer les dérivées de Pn en alpha\n");
                 }
                 break;
             

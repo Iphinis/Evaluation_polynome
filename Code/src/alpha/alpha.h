@@ -15,6 +15,4 @@ double lireAlpha(int mode);
 
 void afficherAlpha(double alpha);
 
-double* horner(polynome p, double alpha);
-
 #endif

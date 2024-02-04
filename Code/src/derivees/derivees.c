@@ -2,10 +2,10 @@
 
 
 /*
-* Remplit le tableau de factorielles contenant 0!, 1!, ..., k!
+* Remplit le tableau de factorielles contenant 0!, 1!, ..., n!
 * Au premier appel de la fonction, le tableau statique 'calculated' est initialisé.
 * Le tableau 'calculated' contiendra toutes les valeurs calculées.
-* Paramètre : k (entier)
+* Paramètre : n (entier)
 */
 int calculerFact(int n) {
     static int saved_fac = 1;
@@ -30,13 +30,6 @@ int calculerFact(int n) {
     return calculated[n];
 }
 
-/*
-Libère les factorielles de la mémoire
-*/
-void libererFact(int *fact) {
-    free(fact);
-}
-
 
 /*
 * Calcule les dérivées de Pn évaluées en alpha
@@ -59,13 +52,5 @@ void deriveesEnAlpha(polynome p, double alpha, double* b, double* deriv) {
     for(int j=0; j <= n; j++) {
         deriv[n-j] = calculerFact(n-j)*r[j];
     }
-}
-
-// Calcul des n dérivées de Pn en alpha
-double* derivees(polynome p, double alpha, double* b) {
-    double* deriv = malloc(sizeof(double)*(p.deg+1));
-    deriveesEnAlpha(p, alpha, b, deriv);
-
-    return deriv;
 }
 

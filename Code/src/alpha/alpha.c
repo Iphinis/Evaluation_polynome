@@ -16,6 +16,7 @@ double enAlphaNaif(polynome p, double alpha) {
     return resultat;
 }
 
+
 /*
 Evaluation de Pn en alpha par la méthode de Horner
 Paramètres: p (polynome), alpha (double), b (tableau de taille p.deg + 1)
@@ -30,6 +31,7 @@ double enAlpha(polynome p, double alpha, double* b) {
     return b[0];
 }
 
+
 double lireAlpha(int mode) {
     double alpha;
     if(mode == 2) printf("Entrez alpha: ");
@@ -38,17 +40,7 @@ double lireAlpha(int mode) {
     return alpha;
 }
 
+
 void afficherAlpha(double alpha) {
     printf("alpha: %.16lf\n", alpha);
-}
-
-double* horner(polynome p, double alpha) {    
-    // Calcul naïf de Pn en alpha
-    // printf("Naif : P_n(%.16lf)=%.16lf\n", alpha, enAlphaNaif(p, alpha));
-
-    // Calculer de Pn en alpha avec Horner
-    double* b = malloc(sizeof(double)*(p.deg+1));
-    printf("Horner : P_n(%.16lf)=%.16lf\n", alpha, enAlpha(p, alpha, b));
-
-    return b;
 }
