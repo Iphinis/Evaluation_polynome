@@ -85,7 +85,7 @@ void modeManuel() {
         printf("n : calculer Pn(alpha) de manière naïve\n");
         printf("h : calculer Pn(alpha) par la méthode de Horner\n");
         printf("d : calculer les dérivées de Pn en alpha\n");
-        printf("6 : calculer P_6(2)\n");
+        printf("c : calculer Pn(alpha) par la méthode de Clenshaw\n");
         // ...
         printf("q : quitter\n");
 
@@ -144,8 +144,8 @@ void modeManuel() {
                 }
                 break;
             
-            case '6':
-                AN1();
+            case 'c':
+                AN1(alpha, p.deg);
                 break;
 
             default:

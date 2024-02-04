@@ -8,16 +8,16 @@
  * Paramètre : n (entier)
  *
  * */
-double **creerMatrice() {
+double **creerMatrice(double alpha, int n) {
     // initialisation
-    double **A = (double **) malloc(sizeof(double *) * 5);
-    for (int k = 0; k < 5; k++) {
-        *(A + k) = (double *) malloc(sizeof(double) * 5);
+    double **A = (double **) malloc(sizeof(double *) * n);
+    for (int k = 0; k < n; k++) {
+        *(A + k) = (double *) malloc(sizeof(double) * n);
     }
 
     // remplissage
-    for (int i=0;i<5;i++){
-    	for (int j=0;j<5;j++){
+    for (int i=0;i<n;i++){
+    	for (int j=0;j<n;j++){
     		A[i][j]=0;
     	}
     }
@@ -29,10 +29,10 @@ double **creerMatrice() {
     A[2][0]=1;
     A[3][1]=1;
     A[4][2]=1;
-    A[1][0]=-4;
-    A[2][1]=-4;
-    A[3][2]=-4;
-    A[4][3]=-4;
+    A[1][0]=-2*alpha;
+    A[2][1]=-2*alpha;
+    A[3][2]=-2*alpha;
+    A[4][3]=-2*alpha;
 
     return A;
 }
@@ -56,13 +56,14 @@ void afficherMatrice(double **matrice, int n) {
  * Paramètre : n (entier)
  *
  * */
-double *creerVecteur() {
-    double *vecteur = (double *) malloc(sizeof(double) * 5);
-    vecteur[0]=-4;
-    vecteur[1]=1;
-    vecteur[2]=0;
-    vecteur[3]=0;
-    vecteur[4]=-2.5;
+double *creerVecteur(int n) {
+    double *vecteur = (double *) malloc(sizeof(double) * n);
+    double v;
+    for (int i=0;i<n;i++){
+    	printf("Coefficient %d :\n",n);
+    	scanf("%lf",&v);
+    	vecteur[i]=v;
+    }
     return vecteur;
 }
 
@@ -114,15 +115,15 @@ double *multiplicationMatriceVect(double **matrice, double *x, int n) {
     return solution;
 }
 
-void AN1() {
-    // Calcul de P6(2) avec algo de descente
+void AN1(double alpha, int n) {
+    // Calcul de Pn(alpha) avec méthode de Clenshaw
     double **A;
     double *x;
     double *b2;
 
-    A=creerMatrice();
-    b2=creerVecteur();
-    x=methodeDescente(A,b2,5);
+    A=creerMatrice(alpha, n-2);
+    b2=creerVecteur(n-2);
+    x=methodeDescente(A,b2,n-2);
 
     for (int i=0;i<5;i++){
     	printf("x[%d] = %.16lf\n",i,x[i]);
