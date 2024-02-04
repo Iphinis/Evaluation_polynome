@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 
 #include "poly/poly.h"
 #include "alpha/alpha.h"
@@ -59,7 +60,17 @@ int modeAutomatique(int machine) {
     printf("Dérivées : ");
     afficherVecteur(deriv, p.deg+1);
 
-    AN1();
+    AN1(alpha,p.deg+1);
+    
+    double b6[7]={log(9),2/3,-1/9,2/81,-1/162,2/1215,-1/2187};
+    double res6;
+    res6 = enAlphaC(alpha,b6,7);
+    printf("La valeur de ln(10+6*%lf) = %.16lf\n",alpha,res6);
+    
+    double b7[8] = {1/10,-1/100,1/1000,-1/10000,1/100000,-1/1000000,1/10000000,-1/100000000};
+    double res7;
+    res7 = enAlphaC(alpha,b7,8);
+    printf("La valeur de (10+6*%lf)/(101+20%lf) = %.16lf\n",alpha,alpha,res6);
 
     return EXIT_SUCCESS;
 }
@@ -86,6 +97,8 @@ void modeManuel() {
         printf("h : calculer Pn(alpha) par la méthode de Horner\n");
         printf("d : calculer les dérivées de Pn en alpha\n");
         printf("c : calculer Pn(alpha) par la méthode de Clenshaw\n");
+        printf("6 : calculer ln(10+6x) par la méthode de Clenshaw\n");
+        printf("7 : calculer 10+6x par la méthode de Clenshaw\n");
         // ...
         printf("q : quitter\n");
 
@@ -146,6 +159,21 @@ void modeManuel() {
             
             case 'c':
                 AN1(alpha, p.deg);
+                //enAlphaC(alpha,b,n);
+                break;
+            
+            case '6':
+                double b6[7]={log(9),2/3,-1/9,2/81,-1/162,2/1215,-1/2187};
+                double res6;
+                res6 = enAlphaC(alpha,b6,7);
+                printf("La valeur de ln(10+6*%lf) = %.16lf\n",alpha,res6);
+                break;
+            
+            case '7':
+                double b7[8] = {1/10,-1/100,1/1000,-1/10000,1/100000,-1/1000000,1/10000000,-1/100000000};
+                double res7;
+                res7 = enAlphaC(alpha,b7,8);
+                printf("La valeur de (10+6*%lf)/(101+20%lf) = %.16lf\n",alpha,alpha,res6);
                 break;
 
             default:
