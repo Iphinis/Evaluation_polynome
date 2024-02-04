@@ -20,3 +20,5 @@ double calcul_ln(double x);
 * Valeur de retour : 1 si la précision est suffisante (strictement inférieure à 10^-4), 0 sinon.
 */
 int verif_prec(double val_th, double val_empirique);
+
+#endif
