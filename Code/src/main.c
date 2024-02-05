@@ -125,9 +125,27 @@ void modeAutomatique(int machine) {
     printf("Dérivées : ");
     afficherVecteur(deriv2, p.deg+1);
 
-    // Méthode de Clenshaw
-    definirEntree("AN_P6_2");
-    definirSortie("AN_P6_2", machine);
+
+    // AN : Méthode descente
+    definirEntree("AN_P6_2_d");
+    definirSortie("AN_P6_2_d", machine);
+
+    p = lirePolynome(1);
+    afficherPolynome(p);
+    //tracerPolynome(p);
+
+    alpha = lireAlpha(1);
+    
+    double **A=creerMatrice(alpha,p.deg-1);
+    double *bc2 = creerVecteur(p.deg-1, 1);
+    double *c=methodeDescente(A,bc2,p.deg-1);
+    double *bcr=creerVecteur(2,1);
+    printf("res = %.16lf\n", bcr[1]-c[p.deg-2]+(bcr[0]+2*alpha*c[p.deg-2]-c[p.deg-3])*alpha);
+
+
+    // AN : Méthode de Clenshaw
+    definirEntree("AN_P6_2_c");
+    definirSortie("AN_P6_2_c", machine);
 
     p = lirePolynome(1);
     afficherPolynome(p);
@@ -145,7 +163,7 @@ void modeAutomatique(int machine) {
 
     alpha = lireAlpha(1);
 
-    double b6[7]={log(9),2/3,-1/9,2/81,-1/162,2/1215,-1/2187};
+    double b6[7]={log(9),2./3,-1./9,2./81,-1./162,2./1215,-1./2187};
     double res6 = enAlphaC(alpha,b6,7);
     printf("La valeur de ln(10+6*%lf) = %.16lf\n", alpha, res6);
 
@@ -174,9 +192,9 @@ void modeAutomatique(int machine) {
 
     alpha = lireAlpha(1);
 
-    double b7[8] = {1/10,-1/100,1/1000,-1/10000,1/100000,-1/1000000,1/10000000,-1/100000000};
-    double res7 = enAlphaC(alpha,b7, 8);
-    printf("La valeur de (10+6*%lf)/(101+20%lf) = %.16lf\n", alpha, alpha, res7);
+    double b7[8] = {1./10,-1./100,1./1000,-1./10000,1./100000,-1./1000000,1./10000000,-1./100000000};
+    double res7 = enAlphaC(alpha,b7,8);
+    printf("La valeur de (10+6*%lf)/(101+20*%lf) = %.16lf\n", alpha, alpha, res7);
 
 
     definirEntree("10x_0.2");
@@ -184,8 +202,8 @@ void modeAutomatique(int machine) {
 
     alpha = lireAlpha(1);
 
-    res7 = enAlphaC(alpha,b7, 8);
-    printf("La valeur de (10+6*%lf)/(101+20%lf) = %.16lf\n", alpha, alpha, res7);
+    res7 = enAlphaC(alpha,b7,8);
+    printf("La valeur de (10+6*%lf)/(101+20*%lf) = %.16lf\n", alpha, alpha, res7);
 }
 
 

@@ -26,9 +26,9 @@ Nous avons décidé de mettre en places 2 modes d'exécution de notre code : aut
 
 A cet instant, on s'est dit qu'il serait intéressant d'observer l'allure des polynômes. C'est pourquoi on a créé les fichiers renderer.c et renderer.h qui utilisent la librairie SDL (cf prérequis).
 
-Ensuite, on a testé nos fonctions en évaluant un polynôme de degré 3, ayant pour coefficient {1,-2,3, 4} en une valeur alpha=-0.75.
+Ensuite, on a testé nos fonctions en évaluant un polynôme de degré 3, ayant pour coefficient {1,-2,3,4} en une valeur alpha=-0.75.
 
-Le fichier de données utilisé est le fichier donnees_naif.txt. Il est constitué comme suit :
+Le fichier de données utilisé est le fichier donnees_naives.txt. Il est constitué comme suit :
 
 3 : Degré du polynôme
 1 -2 3 4 : coefficients
@@ -46,68 +46,44 @@ Voici les polynomes tests :
 1) 1 + 3x**2 + 2 x**3 + 6x**5 en x=3.2
 2) x - 4x**2 + 7x**5 - 3x**6 en x=-5.1
 
-Les fichiers de données utilisés sont donnees_h_5_3.2_mk.txt et donnees_h_6_-5.1_mk.txt dans le dossier input. Ils sont constitués comme suit :
+Les fichiers de données utilisés sont donnees_hd_5_3.2_mk.txt et donnees_hd_6_-5.1_mk.txt dans le dossier input. Ils sont constitués comme suit :
 
-2 : Mode manuel
-5 ou 6 : Degré du polynôme
-... : Coefficients
-3.2 ou -5.1 : alpha
-h : Calcul Horner
+5 : degré du polynome
+1 0 3 2 0 6 : coefficients
+3.2 : alpha
 
-Vous retrouverez les résultats dans les fichiers res_h_5_3.2_mk.txt et res_h_6_-5.1_mk.txt dans le dossier output.
+6 : degré du polynome
+0 1 -4 0 0 7 -3 : coefficients
+-5.1 : alpha
+
+Vous retrouverez les résultats dans les fichiers res_hd_5_3.2_mk.txt et res_hd_6_-5.1_mk.txt dans le dossier output.
 
 
 ## Calcul des dérivées successives 
 
 3. Ensuite, on a décidé de calculer chacune des dérivées des deux polynômes évalués précédemment. Pour cela, on a créé les fichiers derivees.c et derivees.h contenant une fonction calculerFact et une fonction deriveesEnAlpha. On a ensuite calculer chacune des dérivées du polynôme en alpha. 
 
-Les fichiers de données utilisés sont donnees_d_5_3.2_mk.txt et donnees_d_6_-5.1_mk.txt dans le dossier input. Ils sont constitués comme suit :
+Les fichiers de données utilisés sont les meême que précédement : donnees_hd_5_3.2_mk.txt et donnees_hd_6_-5.1_mk.txt dans le dossier input. Ils sont constitués comme suit :
 
-2 : Mode manuel
-5 ou 6 : Degré du polynôme
-... : Coefficients
-3.2 ou -5.1 : alpha
-d : Calcul dérivées
-
-Vous retrouverez les résultats dans les fichiers res_d_5_3.2_mk.txt et res_d_6_-5.1_mk.txt dans le dossier output.
+Vous retrouverez les résultats dans les mêmes fichiers res_hd_5_3.2_mk.txt et res_hd_6_-5.1_mk.txt dans le dossier output.
 
 
 ## Méthode de Clenshaw : base de Tchebychev
 
-4. On a décidé d'implémenter l'algorithme de descente qui va nous être utile par la suite. Il s'agit de la fonction methodeDescente qui se situe dans les fichiers matrice.c et matrice.h nouvellement créé. Aussi, on a créé des fonctions creerMatrice; afficherMatrice; creerVecteur; afficherVecteur et multiplicationMatriceVect dans ces mêmes fichiers. On a effectuer l'analyse numérique demandé en calculant P6(2) par la méthode de descente dans un premier temps. 
+4. On a tout d'abord implémenter l'algorithme de descente, bien que cette méthode ne soit pas efficace. Il s'agit de la fonction methodeDescente qui se situe dans les fichiers matrice.c et matrice.h nouvellement créé. Aussi, on a créé des fonctions creerMatrice; afficherMatrice; creerVecteur; afficherVecteur et multiplicationMatriceVect dans ces mêmes fichiers.
 
-On a donc appliqué la méthode de descente avec         ( 1  0  0  0  0)
-                                                       (-4  1  0  0  0)
-                                                   A = ( 1 -4  1  0  0)
-                                                       ( 0  1 -4  1  0)
-                                                       ( 0  0  1 -4  1)
-                                                   
-                                                   b = (-4 1 0 0 -2.5)T.
+Le fichier de données utilisé est le fichier donnees_AN_P6_2_d.txt. Il est constitué comme suit :
 
-Le fichier de données utilisé est le fichier donnees_AN_P6_2_t_mk.txt. Il est constitué comme suit :
-
-2 : Mode manuel
-0 : Permet de passer rapidement la création du polynome dans la base classique
-0 : Permet de passer rapidement la création du polynome dans la base classique 
+6 : degré dupolynome dans la base de Tchebychev
+2.1 3 -2.5 0 0 1 -4 : coefficients dans la base de Tchebychev
 2 : alpha
-t : Méthode de descente
-6 : degré du polynôme dans la base de Tchebychev
-... : Coefficients 6 à 2 dans la base de Tchebychev
-
-Vous retrouverez le résultat dans le fichier res_AN_P6_2_t_mk.txt dans le dossier output.
+2.1 3 -2.5 0 0 1 -4 : coefficients dans la base de Tchebychev
 
 
-5. On a fait de même avec la méthode de Clenshaw, sans passer par la méthode de descente.  
+Vous retrouverez le résultat dans le fichier res_AN_P6_2_d_mk.txt dans le dossier output.
 
-Le fichier de données utilisé est le fichier donnees_AN_P6_2_c_mk.txt. Il est constitué comme suit :
 
-2 : Mode manuel
-0 : Permet de passer rapidement la création du polynome dans la base classique
-0 : Permet de passer rapidement la création du polynome dans la base classique 
-2 : alpha
-c : Algo de Clenshaw
-6 : degré du polynôme dans la base de Tchebychev
-... : Coefficients 6 à 2 dans la base de Tchebychev
+5. Ensuite, on a implémenté l'algorithme de Clenshaw, bien moins couteux que la méthode de descente. Le fichier de données utilisé est le même que précédemment : donnees_AN_P6_2.txt. 
 
 Vous retrouverez le résultat dans le fichier res_AN_P6_2_c_mk.txt dans le dossier output.
 
@@ -118,36 +94,24 @@ On visualise l'allure des 2 mêmes polynômes vu précédemment avec SDL.
 
 6. L'objectif de cette partie est d'appliquer la méthode de Clenshaw pour déterminer une approximation de la valeur de ln(10+6x) à 10**-4 près. 
 
-On peut soit l'effectuer matriciellement par application de la méthode descente, soit le faire directement par la méthode de Clenshaw, ce qui est bien moins couteux. Donc nous avons décider de le faire avec la méthode de Clenshaw.
+On a donc appliqué l'algorithme de Clenshaw avec alpha=-1 dans un premier temps; puis ensuite avec des valeurs proches : alpha=0.1 et alpha=0.2.
 
-On a donc appliqué l'algorithme de Clenshaw avec alpha=0.2 dans un premier temps. puis ensuite avec des valeurs aux extremités : alpha=-1 et alpha=1.
+Les fichiers de données utilisés sont donnees_ln_0.2.txt ; donnees_ln_0.1.txt et donnees_ln_1.txt dans le dossier input. Ils sont constitués comme suit :
 
-Les fichiers de données utilisés sont donnees_ln_0.2_mk.txt ; donnees_ln_-1_mk.txt et donnees_ln_1_mk.txt dans le dossier input. Ils sont constitués comme suit :
+0.2 ou 0.1 ou 1 : alpha
 
-2 : Mode manuel
-0 : Permet de passer rapidement la création du polynome dans la base classique
-0 : Permet de passer rapidement la création du polynome dans la base classique 
-0.2 ou -1 ou 1 : alpha
-6 : Calcul de ln(10+6alpha)
-
-Vous retrouverez les résultats dans les fichiers res_ln_0.2_mk.txt ; res_ln_-1_mk.txt et res_ln_1_mk.txt dans le dossier output.
+Vous retrouverez les résultats dans les fichiers res_ln_0.2_mk.txt ; res_ln_0.1_mk.txt et res_ln_1_mk.txt dans le dossier output.
 
 
 ## Calcul de (10+x)/(101+20x)
 
 7. L'objectif de cette partie est d'appliquer la méthode de Clenshaw pour déterminer une approximation de la valeur de (10+x)/(101+20x) à 10**-5 près. 
 
-De même, nous avons décider de le faire avec la méthode de Clenshaw en évitant la méthode de descente.
-
 On a donc appliqué l'algorithme de Clenshaw avec alpha=0.2 et alpha=-0.7.
 
-Les fichiers de données utilisés sont donnees_10x_0.2_mk.txt et donnees_10x_-0.7_mk.txt dans le dossier input. Ils sont constitués comme suit :
+Les fichiers de données utilisés sont donnees_10x_0.2.txt et donnees_10x_-0.7.txt dans le dossier input. Ils sont constitués comme suit :
 
-2 : Mode manuel
-0 : Permet de passer rapidement la création du polynome dans la base classique
-0 : Permet de passer rapidement la création du polynome dans la base classique 
 0.2 ou -0.7 : alpha
-7 : Calcul de (10+alpha)/(101+20alpha)
 
 Vous retrouverez les résultats dans les fichiers res_10x_-0.7_mk.txt et res_10x_0.2_mk.txt dans le dossier output.
 
