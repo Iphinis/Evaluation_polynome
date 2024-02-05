@@ -77,52 +77,114 @@ void modeAutomatique(int machine) {
 
     polynome p = lirePolynome(1);
     afficherPolynome(p);
-
-    tracerPolynome(p);
+    //tracerPolynome(p);
 
     double alpha = lireAlpha(1);
 
     printf("Naif : P_n(%.16lf) = %.16lf\n", alpha, enAlphaNaif(p, alpha));
 
 
-    // Méthode de Horner
+    // Méthode de Horner et dérivées
+    definirEntree("hd_5_3.2");
+    definirSortie("hd_5_3.2", machine);
+
+    p = lirePolynome(1);
+    afficherPolynome(p);
+    //tracerPolynome(p);
+
+    // Calcul de Pn(alpha) par Horner
     double* b = (double*) malloc(sizeof(double) * (p.deg+1));
     printf("Horner : P_n(%.16lf) = %.16lf\n", alpha, enAlpha(p, alpha, b));
     printf("b : ");
     afficherVecteur(b, p.deg+1);
 
-
     // Calcul des dérivées successives
-    definirEntree("deriv");
-    definirSortie("deriv", machine);
-
     double* deriv = (double*) malloc(sizeof(double) * (p.deg+1));
     deriveesEnAlpha(p, alpha, b, deriv);
     printf("Dérivées : ");
     afficherVecteur(deriv, p.deg+1);
 
+
+    // Méthode de Horner et dérivées
+    definirEntree("hd_6_-5.1");
+    definirSortie("hd_6_-5.1", machine);
+
+    p = lirePolynome(1);
+    afficherPolynome(p);
+    //tracerPolynome(p);
+
+    // Calcul de Pn(alpha) par Horner
+    double* b2 = (double*) malloc(sizeof(double) * (p.deg+1));
+    printf("Horner : P_n(%.16lf) = %.16lf\n", alpha, enAlpha(p, alpha, b2));
+    printf("b : ");
+    afficherVecteur(b2, p.deg+1);
+
+    // Calcul des dérivées successives
+    double* deriv2 = (double*) malloc(sizeof(double) * (p.deg+1));
+    deriveesEnAlpha(p, alpha, b2, deriv2);
+    printf("Dérivées : ");
+    afficherVecteur(deriv2, p.deg+1);
+
     // Méthode de Clenshaw
     definirEntree("AN_P6_2");
     definirSortie("AN_P6_2", machine);
 
-    AN1(alpha,p.deg+1);
+    p = lirePolynome(1);
+    afficherPolynome(p);
+    //tracerPolynome(p);
+
+    alpha = lireAlpha(1);
+
+    double *bc = creerVecteur(p.deg+1, 1);
+    printf("res = %.16lf\n", enAlphaC(alpha, bc, p.deg+1));
 
 
     // Calcul de ln(10+6x)
-    definirEntree("res6");
-    definirSortie("res6", machine);
+    definirEntree("ln_0.2");
+    definirSortie("ln_0.2", machine);
+
+    alpha = lireAlpha(1);
 
     double b6[7]={log(9),2/3,-1/9,2/81,-1/162,2/1215,-1/2187};
     double res6 = enAlphaC(alpha,b6,7);
     printf("La valeur de ln(10+6*%lf) = %.16lf\n", alpha, res6);
 
 
+    definirEntree("ln_0.1");
+    definirSortie("ln_0.1", machine);
+
+    alpha = lireAlpha(1);
+
+    res6 = enAlphaC(alpha,b6,7);
+    printf("La valeur de ln(10+6*%lf) = %.16lf\n", alpha, res6);
+
+
+    definirEntree("ln_1");
+    definirSortie("ln_1", machine);
+
+    alpha = lireAlpha(1);
+
+    res6 = enAlphaC(alpha,b6,7);
+    printf("La valeur de ln(10+6*%lf) = %.16lf\n", alpha, res6);
+
+
     // Calcul de (10+x)/(101+20x)
-    definirEntree("res7");
-    definirSortie("res7", machine);
+    definirEntree("10x_-0.7");
+    definirSortie("10x_-0.7", machine);
+
+    alpha = lireAlpha(1);
 
     double b7[8] = {1/10,-1/100,1/1000,-1/10000,1/100000,-1/1000000,1/10000000,-1/100000000};
     double res7 = enAlphaC(alpha,b7, 8);
+    printf("La valeur de (10+6*%lf)/(101+20%lf) = %.16lf\n", alpha, alpha, res7);
+
+
+    definirEntree("10x_0.2");
+    definirSortie("10x_0.2", machine);
+
+    alpha = lireAlpha(1);
+
+    res7 = enAlphaC(alpha,b7, 8);
     printf("La valeur de (10+6*%lf)/(101+20%lf) = %.16lf\n", alpha, alpha, res7);
 }
 
@@ -156,7 +218,6 @@ void modeManuel() {
 
         printf("d : calculer les dérivées de Pn en alpha\n");
 
-        printf("t : calculer Pn(alpha) par la méthode de descente\n");
         printf("c : calculer Pn(alpha) par la méthode de Clenshaw\n");
 
         printf("6 : calculer ln(10+6x) par la méthode de Clenshaw\n");
@@ -220,20 +281,13 @@ void modeManuel() {
                 }
                 break;
             
-            case 't':
-                int n2;
-                printf("Entrez le degré dans la base de Tchebychev :\n");
-                scanf("%d",&n2);
-                AN1(alpha, n2);
-                break;
-            
             case 'c':
                 int n3;
-                printf("Entrez le degrédans la base de Tchebychev :\n");
+                printf("Entrez le degré dans la base de Tchebychev :\n");
                 scanf("%d",&n3);
                 double *bc;
                 double resc;
-                bc=creerVecteur(n3);
+                bc=creerVecteur(n3, 2);
                 resc = enAlphaC(alpha,bc,n3);
                 printf("res = %.16lf\n",resc);
                 break;

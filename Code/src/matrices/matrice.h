@@ -5,7 +5,7 @@ double **creerMatrice(double alpha, int n);
 
 void afficherMatrice(double **matrice, int n);
 
-double *creerVecteur(int n);
+double *creerVecteur(int n, int mode);
 
 void afficherVecteur(double *vecteur, int n);
 

@@ -39,12 +39,12 @@ Paramètres: alpha (double), b (tableau de taille n), n (int)
 double enAlphaC(double alpha, double* b, int n) {
 	double c2,c3;
 	c3 = b[n-1];
-	c2 = b[n-2] +2*alpha*c3;
+	c2 = b[n-2] + 2*alpha*c3;
 	for (int i = n-1;i>=4;i--){
 		c3=c2;
 		c2=b[i-2]+2*alpha*c2-b[i];
 	}
-	return b[0]-c2+(b[1]+2*alpha*c2-c3)*alpha;
+	return b[0] - c2 + (b[1]+2*alpha*c2-c3)*alpha;
 }
 
 

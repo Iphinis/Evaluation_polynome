@@ -56,11 +56,11 @@ void afficherMatrice(double **matrice, int n) {
  * Paramètre : n (entier)
  *
  * */
-double *creerVecteur(int n) {
+double *creerVecteur(int n, int mode) {
     double *vecteur = (double *) malloc(sizeof(double) * n);
     double v;
     for (int i=0;i<n;i++){
-    	printf("Coefficient %d :\n",n);
+    	if(mode == 2) printf("Coefficient %d :\n",i);
     	scanf("%lf",&v);
     	vecteur[i]=v;
     }
@@ -113,19 +113,4 @@ double *multiplicationMatriceVect(double **matrice, double *x, int n) {
         *(solution + i) = bi;
     }
     return solution;
-}
-
-void AN1(double alpha, int n) {
-    // Calcul de Pn(alpha) avec méthode de descente
-    double **A;
-    double *x;
-    double *b2;
-
-    A=creerMatrice(alpha, n-2);
-    b2=creerVecteur(n-2);
-    x=methodeDescente(A,b2,n-2);
-
-    for (int i=0;i<5;i++){
-    	printf("x[%d] = %.16lf\n",i,x[i]);
-    }
 }
