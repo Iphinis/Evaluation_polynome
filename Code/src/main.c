@@ -192,9 +192,9 @@ void modeAutomatique(int machine) {
 
     alpha = lireAlpha(1);
 
-    double b7[8] = {1./10,-1./100,1./1000,-1./10000,1./100000,-1./1000000,1./10000000,-1./100000000};
-    double res7 = enAlphaC(alpha,b7,8);
-    printf("La valeur de (10+6*%lf)/(101+20*%lf) = %.16lf\n", alpha, alpha, res7);
+    double b4[5] = {1./10,-1./100,1./1000,-1./10000,1./100000};
+    double res4 = enAlphaC(alpha,b4,5);
+    printf("La valeur de (10+6*%lf)/(101+20*%lf) = %.16lf\n", alpha, alpha, res4);
 
 
     definirEntree("10x_0.2");
@@ -202,8 +202,8 @@ void modeAutomatique(int machine) {
 
     alpha = lireAlpha(1);
 
-    res7 = enAlphaC(alpha,b7,8);
-    printf("La valeur de (10+6*%lf)/(101+20*%lf) = %.16lf\n", alpha, alpha, res7);
+    res4 = enAlphaC(alpha,b4,5);
+    printf("La valeur de (10+6*%lf)/(101+20*%lf) = %.16lf\n", alpha, alpha, res4);
 }
 
 

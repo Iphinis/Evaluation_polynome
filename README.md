@@ -30,9 +30,9 @@ Ensuite, on a testé nos fonctions en évaluant un polynôme de degré 3, ayant 
 
 Le fichier de données utilisé est le fichier donnees_naives.txt. Il est constitué comme suit :
 
-3 : Degré du polynôme
-1 -2 3 4 : coefficients
--0.75 : alpha
+5 : Degré du polynôme
+1 0 3 2 0 6 : coefficients
+3.2 : alpha
 
 Vous retrouverez le résultat dans le fichier res_naif_mk.txt dans le dossier output/mk/, avec k qui est le numéro de la machine qui a exécuté le code.
 
@@ -41,7 +41,7 @@ Vous retrouverez le résultat dans le fichier res_naif_mk.txt dans le dossier ou
 
 2. Ensuite on a décidé d'évaluer plusieurs polynomes avec la méthode Horner. Pour cela, on a créé une fonction enAlpha dans les fichiers alpha.c et alpha.h. 
 
-Voici les polynomes tests :
+Voici les polynomes tests (dont celui vu précédemment) :
 
 1) 1 + 3x**2 + 2 x**3 + 6x**5 en x=3.2
 2) x - 4x**2 + 7x**5 - 3x**6 en x=-5.1
