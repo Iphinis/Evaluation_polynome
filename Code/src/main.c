@@ -77,7 +77,7 @@ void modeAutomatique(int machine) {
 
     polynome p = lirePolynome(1);
     afficherPolynome(p);
-    tracerPolynome(p);
+    //tracerPolynome(p);
 
     double alpha = lireAlpha(1);
 
@@ -110,7 +110,7 @@ void modeAutomatique(int machine) {
 
     p = lirePolynome(1);
     afficherPolynome(p);
-    tracerPolynome(p);
+    //tracerPolynome(p);
 
     // Calcul de Pn(alpha) par Horner
     double* b2 = (double*) malloc(sizeof(double) * (p.deg+1));
@@ -131,7 +131,7 @@ void modeAutomatique(int machine) {
 
     p = lirePolynome(1);
     afficherPolynome(p);
-    tracerPolynome(p);
+    //tracerPolynome(p);
 
     alpha = lireAlpha(1);
     
@@ -148,7 +148,7 @@ void modeAutomatique(int machine) {
 
     p = lirePolynome(1);
     afficherPolynome(p);
-    tracerPolynome(p);
+    //tracerPolynome(p);
 
     alpha = lireAlpha(1);
 
