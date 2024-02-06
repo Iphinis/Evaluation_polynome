@@ -72,8 +72,8 @@ Paramètre: machine (entier)
 */
 void modeAutomatique(int machine) {
     // Approche naïve
-    definirEntree("naives");
-    definirSortie("naives", machine);
+    definirEntree("naif");
+    definirSortie("naif", machine);
 
     polynome p = lirePolynome(1);
     afficherPolynome(p);
@@ -165,7 +165,7 @@ void modeAutomatique(int machine) {
 
     double b6[7]={log(9),2./3,-1./9,2./81,-1./162,2./1215,-1./2187};
     double res6 = enAlphaC(alpha,b6,7);
-    printf("La valeur de ln(10+6*%lf) = %.16lf\n", alpha, res6);
+    printf("La valeur de ln(10+6*%.16lf) = %.16lf\n", alpha, res6);
 
 
     definirEntree("ln_0.1");
@@ -174,7 +174,7 @@ void modeAutomatique(int machine) {
     alpha = lireAlpha(1);
 
     res6 = enAlphaC(alpha,b6,7);
-    printf("La valeur de ln(10+6*%lf) = %.16lf\n", alpha, res6);
+    printf("La valeur de ln(10+6*%.16lf) = %.16lf\n", alpha, res6);
 
 
     definirEntree("ln_1");
@@ -183,7 +183,7 @@ void modeAutomatique(int machine) {
     alpha = lireAlpha(1);
 
     res6 = enAlphaC(alpha,b6,7);
-    printf("La valeur de ln(10+6*%lf) = %.16lf\n", alpha, res6);
+    printf("La valeur de ln(10+6*%.16lf) = %.16lf\n", alpha, res6);
 
 
     // Calcul de (10+x)/(101+20x)
@@ -194,7 +194,7 @@ void modeAutomatique(int machine) {
 
     double b4[5] = {1./10,-1./100,1./1000,-1./10000,1./100000};
     double res4 = enAlphaC(alpha,b4,5);
-    printf("La valeur de (10+6*%lf)/(101+20*%lf) = %.16lf\n", alpha, alpha, res4);
+    printf("La valeur de (10+6*%.16lf)/(101+20*%.16lf) = %.16lf\n", alpha, alpha, res4);
 
 
     definirEntree("10x_0.2");
@@ -203,7 +203,7 @@ void modeAutomatique(int machine) {
     alpha = lireAlpha(1);
 
     res4 = enAlphaC(alpha,b4,5);
-    printf("La valeur de (10+6*%lf)/(101+20*%lf) = %.16lf\n", alpha, alpha, res4);
+    printf("La valeur de (10+6*%.16lf)/(101+20*%.16lf) = %.16lf\n", alpha, alpha, res4);
 }
 
 
@@ -257,7 +257,7 @@ void modeManuel() {
                 break;
 
             case 'r':
-                //tracerPolynome(p);
+                tracerPolynome(p);
                 break;
 
             case 'a':
@@ -314,14 +314,14 @@ void modeManuel() {
                 double b6[7]={log(9),2/3,-1/9,2/81,-1/162,2/1215,-1/2187};
                 double res6;
                 res6 = enAlphaC(alpha,b6,7);
-                printf("La valeur de ln(10+6*%lf) = %.16lf\n",alpha,res6);
+                printf("La valeur de ln(10+6*%.16lf) = %.16lf\n",alpha,res6);
                 break;
             
             case '7':
                 double b7[8] = {1/10,-1/100,1/1000,-1/10000,1/100000,-1/1000000,1/10000000,-1/100000000};
                 double res7;
                 res7 = enAlphaC(alpha,b7,8);
-                printf("La valeur de (10+6*%lf)/(101+20%lf) = %.16lf\n",alpha,alpha,res7);
+                printf("La valeur de (10+6*%.16lf)/(101+20%.16lf) = %.16lf\n",alpha,alpha,res7);
                 break;
 
             default:
