@@ -1,5 +1,10 @@
 #include "poly.h"
 
+
+/*
+Crée un polynôme et le renvoie
+Paramètre: deg (entier)
+*/
 polynome creerPolynome(int deg) {
     polynome p;
 
@@ -9,6 +14,11 @@ polynome creerPolynome(int deg) {
     return p;
 }
 
+
+/*
+Remplit un polynôme
+Paramètre: p (polynome), mode (entier)
+*/
 void remplirPolynome(polynome p, int mode) {
     for(int i=0; i <= p.deg; i++) {
         if(mode == 2) printf("Coefficient du degré %d : ",i);
@@ -16,6 +26,11 @@ void remplirPolynome(polynome p, int mode) {
     }
 }
 
+
+/*
+Affiche un polynôme
+Paramètre: p (polynome)
+*/
 void afficherPolynome(polynome p) {
     printf("Pn : ");
     for(int i=0; i <= p.deg; i++) {
@@ -28,6 +43,10 @@ void afficherPolynome(polynome p) {
     printf("\n");
 }
 
+/*
+Lit un polynôme depuis le flux d'entrée et le renvoie
+Paramètre: mode (entier)
+*/
 polynome lirePolynome(int mode) {
     // Creation du polynome Pn
     int deg;

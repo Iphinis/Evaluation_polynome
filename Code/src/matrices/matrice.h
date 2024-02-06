@@ -1,4 +1,5 @@
 #ifndef MATRICES_H
+
 #define MATRICES_H
 
 double **creerMatrice(double alpha, int n);

@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 /*
- * Créer une matrice carrée de taille n
+ * Crée une matrice carrée de taille nxn en demandant à l'utilisateur chacun des coefficients de la matrice
  * Paramètre : n (entier)
  *
  * */
@@ -52,24 +52,27 @@ void afficherMatrice(double **matrice, int n) {
 }
 
 /*
- * Creer un vecteur à n composantes
+ * Crée un vecteur à n composantes en les demandant à l'utilisateur
  * Paramètre : n (entier)
  *
  * */
 double *creerVecteur(int n, int mode) {
     double *vecteur = (double *) malloc(sizeof(double) * n);
     double v;
+
     for (int i=0;i<n;i++){
     	if(mode == 2) printf("Coefficient %d :\n",i);
     	scanf("%lf",&v);
     	vecteur[i]=v;
     }
+
     return vecteur;
 }
 
 /*
  * Afficher un vecteur de dimension n
  * Paramètres : vecteur (double *), n (entier)
+ * 
  * */
 void afficherVecteur(double *vecteur, int n) {
     printf("{ ");
@@ -87,6 +90,7 @@ void afficherVecteur(double *vecteur, int n) {
  * */
 double *methodeDescente(double **matrice, double *b, int n) {
     double *solution = (double *) malloc(sizeof(double) * n);
+    
     for (int i = 0; i < n; i++) {
         *(solution + i) = *(b + i);
         for (int k = 0; k < i; k++) {
@@ -94,6 +98,7 @@ double *methodeDescente(double **matrice, double *b, int n) {
         }
         *(solution + i) = *(solution + i) / *(*(matrice + i) + i);
     }
+
     return solution;
 }
 
@@ -105,6 +110,7 @@ double *methodeDescente(double **matrice, double *b, int n) {
 double *multiplicationMatriceVect(double **matrice, double *x, int n) {
     double *solution = (double *) malloc(sizeof(double) * n);
     double bi;
+
     for (int i = 0; i < n; i++) {
         bi = 0;
         for (int j = 0; j < n; j++) {
@@ -112,5 +118,6 @@ double *multiplicationMatriceVect(double **matrice, double *x, int n) {
         }
         *(solution + i) = bi;
     }
+
     return solution;
 }

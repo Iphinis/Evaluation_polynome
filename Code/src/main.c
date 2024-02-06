@@ -18,8 +18,8 @@
 
 
 /*
-definirEntree : rediriger stdin vers un fichier de données
-Paramètre: nom_fonction (string)
+definirEntree : rediriger le flux stdin vers un fichier de données
+Paramètre: nom_fonction (chaine de caractères)
 */
 void definirEntree(char* nom_fonction) {
     char input_file[200];
@@ -36,7 +36,7 @@ void definirEntree(char* nom_fonction) {
 
 
 /*
-definirSortie : rediriger stdout vers un fichier de résultat
+definirSortie : rediriger le flux stdout vers un fichier de résultat
 Paramètres: nom_fonction (chaine de caractères), machine (entier)
 */
 void definirSortie(char* nom_fonction, int machine) {
@@ -77,7 +77,7 @@ void modeAutomatique(int machine) {
 
     polynome p = lirePolynome(1);
     afficherPolynome(p);
-    //tracerPolynome(p);
+    tracerPolynome(p);
 
     double alpha = lireAlpha(1);
 
@@ -90,7 +90,6 @@ void modeAutomatique(int machine) {
 
     p = lirePolynome(1);
     afficherPolynome(p);
-    //tracerPolynome(p);
 
     // Calcul de Pn(alpha) par Horner
     double* b = (double*) malloc(sizeof(double) * (p.deg+1));
@@ -111,7 +110,7 @@ void modeAutomatique(int machine) {
 
     p = lirePolynome(1);
     afficherPolynome(p);
-    //tracerPolynome(p);
+    tracerPolynome(p);
 
     // Calcul de Pn(alpha) par Horner
     double* b2 = (double*) malloc(sizeof(double) * (p.deg+1));
@@ -132,7 +131,7 @@ void modeAutomatique(int machine) {
 
     p = lirePolynome(1);
     afficherPolynome(p);
-    //tracerPolynome(p);
+    tracerPolynome(p);
 
     alpha = lireAlpha(1);
     
@@ -149,7 +148,7 @@ void modeAutomatique(int machine) {
 
     p = lirePolynome(1);
     afficherPolynome(p);
-    //tracerPolynome(p);
+    tracerPolynome(p);
 
     alpha = lireAlpha(1);
 
@@ -332,9 +331,17 @@ void modeManuel() {
 }
 
 
+/*
+Fonction main : point d'entrée du programme.
+Description : Le programme peut fonctionner en deux modes distincts : automatique ou manuel.
+    - En mode automatique, l'utilisateur doit fournir uniquement le numéro de la machine (k). Le programme va lire les données depuis le dossier "input/" et écrire les résultats des instructions dans le dossier "output/mk/", où mk est le numéro de la machine spécifiée.
+    - En mode manuel, l'utilisateur peut interagir avec le programme en temps réel via une interface en ligne de commande. Aucune lecture ni écriture de fichiers n'est effectuée. Ce mode est principalement utilisé pour tester les fonctionnalités du programme.
+Entrées : Aucune entrée requise.
+Sorties : Le programme renvoie 0 en cas de succès.
+*/
 int main() {
     int mode;
-    printf("Veuillez lire la documentation pour comprendre les cas d'utilisation des différents modes\n");
+    printf("Veuillez lire le README pour comprendre les cas d'utilisation des différents modes\n");
     printf("Choisissez le mode d'utilisation (1 pour automatique, 2 pour manuel): ");
     scanf("%i", &mode);
 

@@ -4,7 +4,6 @@
 /*
 Evaluation naïve de Pn en alpha
 Paramètres: p (polynome), alpha (double)
-Sortie: Pn(alpha)
 */
 double enAlphaNaif(polynome p, double alpha) {
     double resultat = 0.0;
@@ -47,7 +46,10 @@ double enAlphaC(double alpha, double* b, int n) {
 	return b[0] - c2 + (b[1]+2*alpha*c2-c3)*alpha;
 }
 
-
+/*
+Lit une valeur alpha depuis le flux entrant et la renvoie
+Paramètre: mode (entier)
+*/
 double lireAlpha(int mode) {
     double alpha;
     if(mode == 2) printf("Entrez alpha: ");
@@ -56,7 +58,10 @@ double lireAlpha(int mode) {
     return alpha;
 }
 
-
+/*
+Affiche une valeur alpha dans le flux sortant
+Paramètre: alpha (double)
+*/
 void afficherAlpha(double alpha) {
     printf("alpha: %.16lf\n", alpha);
 }
